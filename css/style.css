@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color: #EFEFEF;
+}
+
+.navbar-container{
+    background-color: var(--primary-color);
+    padding: 0.5em 1.5%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #000000;
+
+}
+
+.navbar ul{
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar ul li{
+    display: none;
+}
+
+.body_container {
+    padding: 0 1.5%;
+    background: red;
+}
+.map{
+    height: 300px;
+    background-color: blue;
+}
+
+@media only screen and (min-width: 600px){
+
+    .navbar ul{
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar ul li{
+        background-color: #FFFFFF;
+        display: inline-block;
+        margin: 0 0.3125em;
+        padding: 0.3125em 1.25em;
+        font-weight: 900;
+        font-size: 1rem;
+        color: #000000;
+    }  
+}
