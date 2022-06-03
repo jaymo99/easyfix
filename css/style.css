@@ -23,25 +23,77 @@
     font-size: 1.75rem;
     font-weight: 900;
     color: #000000;
-
 }
 
 .navbar ul{
-    list-style: none;
-    display: inline-block;
-}
-
-.navbar ul li{
     display: none;
 }
 
 .body_container {
     padding: 0 1.5%;
-    background: red;
 }
 .map{
-    height: 300px;
+    height: 70vh;
+    border-radius: 10px;
+    margin: .5em 0;
+    background-color: yellow;
+}
+
+.index_page_cards span{
+    display: table;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 1em 0 .3em;
+    border-bottom: thick solid black;
+
+}
+
+.mechanic_cards_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding-top: .5em;
+    padding-bottom: 25em;
     background-color: blue;
+}
+
+/* .mechanic_cards_container::after {
+    content: "";
+    flex: auto;
+} */
+
+.mechanic_card{
+    display: inline;
+    max-width: 272px;
+    margin: .5em;
+    padding: .5em .5em 2em .5em;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+
+.mechanic_card img{
+    max-width: 256px;
+    border-radius: .625em;
+}
+
+.mechanic_card p{
+    font-size: 1.125rem;
+    font-weight: 900;
+    padding: 0.3125em 0;
+}
+
+.mechanic_card span{
+    font-size: 0.875rem;
+    font-weight: 400;
+    border: none;
+    margin: 0;
+    padding: .3125em 0;
+}
+
+.footer {
+    height: 50px;
+    background: var(--primary-color)
 }
 
 @media only screen and (min-width: 600px){
@@ -59,5 +111,10 @@
         font-weight: 900;
         font-size: 1rem;
         color: #000000;
-    }  
+    }
+
+    .navbar ul li a{
+        text-decoration: none;
+        color: black;
+    }
 }
