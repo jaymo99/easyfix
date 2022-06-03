@@ -9,29 +9,37 @@
     --primary-color: #EFEFEF;
 }
 
-.navbar-container{
+.my-navbar-container{
     background-color: var(--primary-color);
     padding: 0.5em 1.5%;
 }
 
-.navbar{
+.my-navbar{
     display: flex;
     justify-content: space-between;
 }
 
-.navbar .logo {
+.my-navbar .my-logo {
     font-size: 1.75rem;
     font-weight: 900;
     color: #000000;
 }
 
-.navbar ul{
+.my-navbar ul{
     display: none;
+    margin: 0;
 }
 
 .body_container {
     padding: 0 1.5%;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .map{
     height: 70vh;
     border-radius: 10px;
@@ -91,19 +99,36 @@
     padding: .3125em 0;
 }
 
-.footer {
-    height: 50px;
-    background: var(--primary-color)
+.mech-register {
+    width: 85%;
+    padding-top: 3em;
 }
+
+.mech-register p {
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-bottom: .5em;
+}
+
+.mech-register input, .mech-register textarea{
+    margin-bottom: .5em;
+}
+
+.btn-width {
+    width: 100%;
+    margin: 0.625em auto;
+}
+
+
 
 @media only screen and (min-width: 600px){
 
-    .navbar ul{
+    .my-navbar ul{
         display: flex;
         align-items: center;
     }
 
-    .navbar ul li{
+    .my-navbar ul li{
         background-color: #FFFFFF;
         display: inline-block;
         margin: 0 0.3125em;
@@ -113,8 +138,12 @@
         color: #000000;
     }
 
-    .navbar ul li a{
+    .my-navbar ul li a{
         text-decoration: none;
         color: black;
+    }
+
+    .mech-register {
+        width: 50%;
     }
 }

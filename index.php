@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="navbar-container">
-        <div class="navbar">
+    <div class="my-navbar-container">
+        <div class="my-navbar">
             
-            <div class="logo">
+            <div class="my-logo">
                 <span>EASYFIX</span>
             </div>
             <ul>
