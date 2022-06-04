@@ -219,6 +219,71 @@
     margin-bottom: 1rem;
 }
 
+.appointments-collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: green;
+}
+
+.appointment-card-container {
+    display: table;
+    margin: .5em;
+    border: 2px solid #FFA300;
+    border-radius: 10px;
+    background-color: #EFEFEF;
+}
+
+.appointment-card {
+    max-width: 320px;
+    margin: 10px;
+}
+
+.appointment-card-title span {
+    font-size: .9rem;
+    font-weight: 800;
+}
+
+.appointment-card-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.appointment-card-col {
+    display: flex;
+}
+
+.appointment-card-content img {
+    max-width: 50px;
+    margin-right: 1em;
+}
+
+.appointment-card-col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .3em 0;
+}
+
+.appointment-card-content button {
+    align-self: flex-end;
+}
+
+.appointment-card-content .span-status {
+    font-weight: 500;
+    font-size: .8rem;
+    letter-spacing: 0.075em;
+    color: #000000;
+}
+
+.appointment-card-content .span-date {
+    font-weight: 300;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    color: #000000;
+}
+
 
 @media only screen and (min-width: 600px){
 
@@ -263,6 +328,10 @@
         align-self: flex-start;
         margin: .5em 0;
         border-radius: 10px;
+    }
+
+    .appointments-collection {
+        justify-content: flex-start;
     }
 
 }
