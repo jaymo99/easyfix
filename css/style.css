@@ -9,6 +9,7 @@
     --primary-color: #EFEFEF;
 }
 
+
 .my-navbar-container{
     background-color: var(--primary-color);
     padding: 0.5em 1.5%;
@@ -34,11 +35,11 @@
     padding: 0 1.5%;
 }
 
-.center {
+/* .center {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .map{
     height: 70vh;
@@ -63,13 +64,7 @@
     justify-content: space-evenly;
     padding-top: .5em;
     padding-bottom: 25em;
-    background-color: blue;
 }
-
-/* .mechanic_cards_container::after {
-    content: "";
-    flex: auto;
-} */
 
 .mechanic_card{
     display: inline;
@@ -100,8 +95,12 @@
 }
 
 .mech-register {
-    width: 85%;
     padding-top: 3em;
+}
+
+.my-responsive-form {
+    width: 85%;
+    margin: 0 auto;
 }
 
 .mech-register p {
@@ -119,6 +118,106 @@
     margin: 0.625em auto;
 }
 
+.mech-banner {
+    width: 100%;
+    height: 30vh;
+    margin: .8em 0;
+    border-radius: 10px;
+}
+
+.mech-banner img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.mech-content {
+    margin: .8em 0 1em;
+}
+
+.mech-content h1 {
+    font-size: 2.25rem;
+    font-weight: 900;
+    padding-top: 0;
+}
+
+.mech-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.mech-content p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.mech-content button {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2em;
+}
+
+.view-mech-contact img {
+    max-width: 24px;
+    margin-right: .5em;
+}
+
+.view-mech-contact span {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.working-hours {
+    display: table;
+    margin: 3em auto;
+    padding: .8em;
+    background-color: var(--primary-color);
+}
+
+.working-hours h3 {
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-bottom: 3px solid #000000;
+}
+
+.working-hours-row {
+    max-width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.working-day {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.appointment-form-row {
+    margin-bottom: .8em;
+}
+
+.my-placeholder {
+    color: #6C757D;
+}
+
+.book-appointment-container {
+    width: 100%;
+    margin: 3em 0 10em;
+    padding: .3em 0;
+    background-color: var(--primary-color);
+}
+
+.book-appointment {
+    margin-top: 3em;
+}
+
+.book-appointment h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
 
 @media only screen and (min-width: 600px){
@@ -143,7 +242,27 @@
         color: black;
     }
 
-    .mech-register {
+    .my-responsive-form {
         width: 50%;
     }
+
+    .mech-banner {
+        height: 60vmin;
+    }
+
+    .mech-content {
+        width: 50%;
+    }
+
+    .working-hours-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .working-hours {
+        align-self: flex-start;
+        margin: .5em 0;
+        border-radius: 10px;
+    }
+
 }

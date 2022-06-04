@@ -23,11 +23,11 @@
     </div>
     
     <div class="body_container center">
-        <div class="mech-register">
+        <div class="mech-register my-responsive-form">
             <p>LOG IN</p>
             <form action="">
                 <select name="" id="" class="form-control" required>
-                    <option value="" selected disabled>Choose an Option</option>
+                    <option class="my-placeholder" value="" selected disabled>Choose an Option</option>
                     <option value="">I'm a Mechanic</option>
                     <option value="">I'm a Client</option>
                     </select>

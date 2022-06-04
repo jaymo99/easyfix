@@ -29,22 +29,22 @@
             <span>Mechanics Near You</span>
             <div class="mechanic_cards_container">
                 <div class="mechanic_card">
-                    <img src="graphics/mechanic.jpg" alt="">
+                    <img src="graphics/mechanic-banner.jpg" alt="">
                     <p>Mr. Handyman and Sons</p>
                     <span>Rongai</span>
                 </div>
                 <div class="mechanic_card">
-                    <img src="graphics/mechanic.jpg" alt="">
+                    <img src="graphics/mechanic-banner.jpg" alt="">
                     <p>Mr. Handyman and Sons</p>
                     <span>Rongai</span>
                 </div>
                 <div class="mechanic_card">
-                    <img src="graphics/mechanic.jpg" alt="">
+                    <img src="graphics/mechanic-banner.jpg" alt="">
                     <p>Mr. Handyman and Sons</p>
                     <span>Rongai</span>
                 </div>
                 <div class="mechanic_card">
-                    <img src="graphics/mechanic.jpg" alt="">
+                    <img src="graphics/mechanic-banner.jpg" alt="">
                     <p>Mr. Handyman and Sons</p>
                     <span>Rongai</span>
                 </div>

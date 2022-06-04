@@ -22,8 +22,8 @@
         </div>
     </div>
 
-    <div class="body_container center">
-        <div class="mech-register">
+    <div class="body_container">
+        <div class="mech-register my-responsive-form">
             <p>Register as a Mechanic</p>
             <form action="">
                 <input type="text" name="" id="" class="form-control" placeholder="Your Business Name">

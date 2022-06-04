@@ -23,7 +23,7 @@
     </div>
     
     <div class="body_container center">
-        <div class="mech-register">
+        <div class="mech-register my-responsive-form">
             <p>Register as a Client</p>
             <form action="">
                 <input type="text" name="" id="" class="form-control" placeholder="First Name">
