@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mechanic sign up</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="my-navbar-container">
+    <div class="my-navbar-container">
         <div class="my-navbar">
             
             <div class="my-logo">
@@ -21,12 +21,11 @@
             </ul>
         </div>
     </div>
-    <div class="body_container">
-    </div>
+
     <div class="body_container center">
         <div class="mech-register">
             <p>Register as a Mechanic</p>
-            <form action="" style="width: 100%;">
+            <form action="">
                 <input type="text" name="" id="" class="form-control" placeholder="Your Business Name">
                 <input type="text" name="" id="" class="form-control" placeholder="Location (Town)">
                 <textarea name="" id="" cols="" rows="3" class="form-control" placeholder="Describe where the Business is found"></textarea>
