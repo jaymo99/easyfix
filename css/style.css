@@ -213,10 +213,13 @@
 }
 
 .section-heading {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    text-align: center;
     margin-bottom: 1rem;
+}
+
+.heading-center {
+    text-align: center;
 }
 
 .recent-appointments {
@@ -253,13 +256,28 @@
 }
 
 .appointment-card {
-    max-width: 320px;
+    min-width: 320px;
     margin: 10px;
 }
 
 .appointment-card-title span {
     font-size: .9rem;
     font-weight: 800;
+}
+
+.mech-appointment-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-title-one{
+    font-size: .9rem;
+    font-weight: 800;
+}
+
+.appointment-title-two{
+    font-size: .75rem;
+    font-weight: 300;
 }
 
 .appointment-card-content {
