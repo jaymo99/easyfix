@@ -212,26 +212,44 @@
     margin-top: 3em;
 }
 
-.book-appointment h2 {
+.section-heading {
     font-size: 1.7rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
 }
 
+.recent-appointments {
+    margin: 2em 0 4.2em;
+}
+
 .appointments-collection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: green;
 }
 
 .appointment-card-container {
     display: table;
     margin: .5em;
-    border: 2px solid #FFA300;
     border-radius: 10px;
     background-color: #EFEFEF;
+}
+
+.service-cancelled {
+    border: 2px solid #E24C4B;
+}
+
+.service-approved {
+    border: 2px solid #4BAE4F;
+}
+
+.service-pending {
+    border: 2px solid #FFA300;
+}
+
+.service-upcoming {
+    border: 2px solid #7DD0CA;
 }
 
 .appointment-card {

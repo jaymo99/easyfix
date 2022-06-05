@@ -90,7 +90,7 @@
 
         <div class="book-appointment-container">
             <div class="book-appointment my-responsive-form">
-                <h2>BOOK APPOINTMENT</h2>
+                <h2 class="section-heading">BOOK APPOINTMENT</h2>
                 <form action="">
                     <div class="appointment-form-row">
                         <label for="appointment_date" class="my-placeholder">Appointment Date:</label>
