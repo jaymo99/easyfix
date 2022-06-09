@@ -25,7 +25,7 @@ class ClientSignupContr extends Signup {
 
         }
 
-        if($this->emailTakenCheck($this->email, "client") == true) {
+        if($this->isEmailTaken($this->email, "client") == true) {
             header("location: ../client-signup.php?error=emailTaken");
             exit();
         }

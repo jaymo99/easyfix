@@ -27,7 +27,7 @@ class MechSignupContr extends Signup {
 
         }
 
-        if($this->emailTakenCheck($this->email, "mechanic") == true) {
+        if($this->isEmailTaken($this->email, "mechanic") == true) {
             header("location: ../mechanic-signup.php?error=emailTaken");
             exit();
         }

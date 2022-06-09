@@ -32,7 +32,7 @@ class Signup extends Dbh{
         $stmt = null;
     }
 
-    protected function checkUser($email, $table) {
+    protected function isEmailTaken($email, $table) {
         $sql = "SELECT * FROM " . $table . " WHERE email = ?;";
         $stmt = $this->connect()->prepare($sql);   
         
@@ -66,13 +66,4 @@ class Signup extends Dbh{
         return $result;
     }
 
-    protected function emailTakenCheck($email, $table) {
-        $result = null;   //boolean value true or false
-        if($this->checkUser($email, $table)){
-            $result = true;
-        }else{
-            $result = false;
-        }
-        return $result;
-    }
 }
