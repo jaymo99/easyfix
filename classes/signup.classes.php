@@ -2,7 +2,7 @@
 
 class Signup extends Dbh{
 
-    protected function setUser($businessName, $location, $description, $phoneNumber, $email, $pwd) {
+    protected function setMechanic($businessName, $location, $description, $phoneNumber, $email, $pwd) {
         $stmt = $this->connect()->prepare("INSERT INTO mechanic(name, town, description, phone, email, password) VALUES (?, ?, ?, ?, ?, ?);");
 
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -17,12 +17,18 @@ class Signup extends Dbh{
         $stmt = null;
     }
 
-    protected function checkUser($email) {
-        $stmt = $this->connect()->prepare('SELECT * FROM mechanic WHERE email = ?;');   
+
+    protected function checkUser($email, $table) {
+        $sql = "SELECT * FROM " . $table . " WHERE email = ?;";
+        $stmt = $this->connect()->prepare($sql);   
         
         if(!$stmt->execute(array($email))) {
             $stmt = null;
-            header("location: ../mechanic-signup.php?error=stmtfailedTWO");
+            if($table == "mechanic"){
+                header("location: ../mechanic-signup.php?error=stmtfailedTWO");
+            }else{
+                header("location: ../client-signup.php?error=stmtfailedTWO");
+            }
             exit();
         }
 

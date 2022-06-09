@@ -1,6 +1,6 @@
 <?php
 
-class SignupContr extends Signup {
+class MechSignupContr extends Signup {
     private $businessName;
     private $location;
     private $description;
@@ -32,7 +32,7 @@ class SignupContr extends Signup {
             exit();
         }
 
-        $this->setUser($this->businessName, $this->location, $this->description, $this->phoneNumber, $this->email, $this->pwd);
+        $this->setMechanic($this->businessName, $this->location, $this->description, $this->phoneNumber, $this->email, $this->pwd);
     }
 
     private function pwdMatch() {
@@ -47,7 +47,7 @@ class SignupContr extends Signup {
 
     private function emailTakenCheck() {
         $result = null;   //boolean value true or false
-        if($this->checkUser($this->email)){
+        if($this->checkUser($this->email, "mechanic")){
             $result = true;
         }else{
             $result = false;

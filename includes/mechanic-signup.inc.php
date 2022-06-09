@@ -14,8 +14,8 @@ if(isset($_POST["submit"])){
     //Instantiate signupContr class
     include "../classes/dbh.classes.php";
     include "../classes/signup.classes.php";   
-    include "../classes/signupContr.classes.php";
-    $signup = new SignupContr($businessName, $location, $description, $phoneNumber, $email, $pwd, $confirmPwd);
+    include "../classes/mechSignupContr.classes.php";
+    $signup = new MechSignupContr($businessName, $location, $description, $phoneNumber, $email, $pwd, $confirmPwd);
     
     //Running error handlers and user signup
     $signup->signupUser();
