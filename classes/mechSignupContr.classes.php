@@ -20,14 +20,14 @@ class MechSignupContr extends Signup {
         $this->confirmPwd = $confirmPwd;
     }
     
-    public function signupUser() {
-        if($this->pwdMatch() == false) {
+    public function signupMechanic() {
+        if($this->pwdMatch($this->pwd, $this->confirmPwd) == false) {
             header("location: ../mechanic-signup.php?error=passwordMismatch");
             exit();
 
         }
 
-        if($this->emailTakenCheck() == true) {
+        if($this->emailTakenCheck($this->email, "mechanic") == true) {
             header("location: ../mechanic-signup.php?error=emailTaken");
             exit();
         }
@@ -35,24 +35,5 @@ class MechSignupContr extends Signup {
         $this->setMechanic($this->businessName, $this->location, $this->description, $this->phoneNumber, $this->email, $this->pwd);
     }
 
-    private function pwdMatch() {
-        $result = null;   //boolean value true or false
-        if($this->pwd !== $this->confirmPwd){
-            $result = false;
-        }else{
-            $result = true;
-        }
-        return $result;
-    }
-
-    private function emailTakenCheck() {
-        $result = null;   //boolean value true or false
-        if($this->checkUser($this->email, "mechanic")){
-            $result = true;
-        }else{
-            $result = false;
-        }
-        return $result;
-    }
 
 }

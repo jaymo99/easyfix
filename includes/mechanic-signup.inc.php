@@ -18,7 +18,7 @@ if(isset($_POST["submit"])){
     $signup = new MechSignupContr($businessName, $location, $description, $phoneNumber, $email, $pwd, $confirmPwd);
     
     //Running error handlers and user signup
-    $signup->signupUser();
+    $signup->signupMechanic();
     
     //Going back to front page 
     header("location: ../mechanic-signup.php?error=none");
