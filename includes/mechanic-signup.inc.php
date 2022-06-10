@@ -12,9 +12,8 @@ if(isset($_POST["submit"])){
     $confirmPwd = $_POST["confirmPwd"];
 
     //Instantiate signupContr class
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";   
-    include "../classes/mechSignupContr.classes.php";
+    include "autoloader.inc.php";
+    
     $signup = new MechSignupContr($businessName, $location, $description, $phoneNumber, $email, $pwd, $confirmPwd);
     
     //Running error handlers and user signup
