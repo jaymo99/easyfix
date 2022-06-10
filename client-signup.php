@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +38,12 @@
     <div class="body_container center">
         <div class="mech-register my-responsive-form">
             <p>Register as a Client</p>
-            <div class="alert alert-warning" role="alert">
-                This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+            <?php if(isset($_SESSION['form_error'])) {?>
+            <div class="alert alert-danger" role="alert">
+                <strong>Error! </strong>
+                <?php echo $_SESSION['form_error']; unset($_SESSION['form_error']) ?>
             </div>
+            <?php  }  ?>
             <form action="includes/client-signup.inc.php" method="post">
                 <input type="text" name="firstName" id="" class="form-control" placeholder="First Name" required>
                 <input type="text" name="middleName" id="" class="form-control" placeholder="Middle Name" required>

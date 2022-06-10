@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class MechSignupContr extends Signup {
     private $businessName;
     private $location;
@@ -22,12 +24,14 @@ class MechSignupContr extends Signup {
     
     public function signupMechanic() {
         if($this->pwdMatch($this->pwd, $this->confirmPwd) == false) {
+            $_SESSION['form_error'] = "Password Mismatch";
             header("location: ../mechanic-signup.php?error=passwordMismatch");
             exit();
 
         }
 
         if($this->isEmailTaken($this->email, "mechanic") == true) {
+            $_SESSION['form_error'] = "Invalid email";
             header("location: ../mechanic-signup.php?error=emailTaken");
             exit();
         }

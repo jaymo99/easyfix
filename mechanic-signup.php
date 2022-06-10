@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +38,12 @@
     <div class="body_container">
         <div class="mech-register my-responsive-form">
             <p>Register as a Mechanic</p>
+            <?php if(isset($_SESSION['form_error'])) {?>
+            <div class="alert alert-danger" role="alert">
+                <strong>Error! </strong>
+                <?php echo $_SESSION['form_error']; unset($_SESSION['form_error']) ?>
+            </div>
+            <?php  }  ?>
             <form action="includes/mechanic-signup.inc.php" method="post">
                 <input type="text" name="businessName" id="" class="form-control" placeholder="Your Business Name" required>
                 <input type="text" name="location" id="" class="form-control" placeholder="Location (Town)" required>
