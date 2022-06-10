@@ -10,9 +10,10 @@ if(isset($_POST["submit"])) {
     $confirmPwd = $_POST["confirmPwd"];
 
     //Initializing controller
-    include "../classes/dbh.classes.php";
-    include "../classes/signup.classes.php";
-    include "../classes/clientSignupContr.classes.php";
+    // include "../classes/dbh.classes.php";
+    // include "../classes/signup.classes.php";
+    // include "../classes/clientSignupContr.classes.php";
+    include "autoloader.inc.php";
 
     $signup = new ClientSignupContr($firstName, $middleName, $lastName, $email, $pwd, $confirmPwd);
 

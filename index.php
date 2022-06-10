@@ -1,5 +1,10 @@
 <?php
-    include "includes/index.inc.php";
+    //Including relevant classes
+    include "includes/autoloader.inc.php";
+
+    //Initializing the controller
+    $content = new ContentContr();
+    $mechanics = $content->myFunc();
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +36,7 @@
             <span>Mechanics Near You</span>
             <div class="mechanic_cards_container">
 
+                <!-- loop through mechanics array and display cards -->
                 <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
                 <div class="mechanic_card">
                     <img src="graphics/mechanic-banner.jpg" alt="">
