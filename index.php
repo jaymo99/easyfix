@@ -1,3 +1,7 @@
+<?php
+    include "includes/index.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,33 +25,20 @@
         </div>
     </div>
     <div class="body_container">
-        <div class="map">
-
-        </div>
+        <div class="map"> </div>
 
         <div class="index_page_cards">
             <span>Mechanics Near You</span>
             <div class="mechanic_cards_container">
+
+                <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
                 <div class="mechanic_card">
                     <img src="graphics/mechanic-banner.jpg" alt="">
-                    <p>Mr. Handyman and Sons</p>
-                    <span>Rongai</span>
+                    <p> <?php echo $mechanics[$x]['name'] ?> </p>
+                    <span> <?php echo $mechanics[$x]['town'] ?> </span>
                 </div>
-                <div class="mechanic_card">
-                    <img src="graphics/mechanic-banner.jpg" alt="">
-                    <p>Mr. Handyman and Sons</p>
-                    <span>Rongai</span>
-                </div>
-                <div class="mechanic_card">
-                    <img src="graphics/mechanic-banner.jpg" alt="">
-                    <p>Mr. Handyman and Sons</p>
-                    <span>Rongai</span>
-                </div>
-                <div class="mechanic_card">
-                    <img src="graphics/mechanic-banner.jpg" alt="">
-                    <p>Mr. Handyman and Sons</p>
-                    <span>Rongai</span>
-                </div>
+                <?php } ?>
+                
             </div>
         </div>
     </div>
