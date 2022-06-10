@@ -14,7 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>easyfix</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
     <div class="my-navbar-container">
@@ -24,8 +26,20 @@
                 <span>EASYFIX</span>
             </div>
             <ul>
-                <li><a href="#">LOG IN</a></li>
-                <li><a href="#">SIGN UP</a></li>
+                <div class="dropdown" data-dropdown>
+                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>LOG IN</button>
+                    <div class="dropdown-menu">
+                        <a class="btn" href="#">Client</a>
+                        <a class="btn" href="#">Mechanic</a>
+                    </div>
+                </div>
+                <div class="dropdown" data-dropdown>
+                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
+                    <div class="dropdown-menu">
+                        <a class="btn" href="#">Client</a>
+                        <a class="btn" href="#">Mechanic</a>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>
