@@ -23,21 +23,17 @@
         <div class="my-navbar">
             
             <div class="my-logo">
-                <span>EASYFIX</span>
+                <a href=""><span>EASYFIX</span></a>
             </div>
             <ul>
-                <div class="dropdown" data-dropdown>
-                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>LOG IN</button>
-                    <div class="dropdown-menu">
-                        <a class="btn" href="#">Client</a>
-                        <a class="btn" href="#">Mechanic</a>
-                    </div>
+                <div>
+                    <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
                 </div>
                 <div class="dropdown" data-dropdown>
                     <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
                     <div class="dropdown-menu">
-                        <a class="btn" href="#">Client</a>
-                        <a class="btn" href="#">Mechanic</a>
+                        <a class="btn" href="client-signup.php">Client</a>
+                        <a class="btn" href="mechanic-signup.php">Mechanic</a>
                     </div>
                 </div>
             </ul>

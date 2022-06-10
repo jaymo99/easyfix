@@ -7,17 +7,26 @@
     <title>Log in</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
     <div class="my-navbar-container">
         <div class="my-navbar">
             
             <div class="my-logo">
-                <span>EASYFIX</span>
+                <a href="index.php"><span>EASYFIX</span></a>
             </div>
             <ul>
-                <li><a href="#">LOG IN</a></li>
-                <li><a href="#">SIGN UP</a></li>
+                <div>
+                    <a href="" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
+                </div>
+                <div class="dropdown" data-dropdown>
+                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
+                    <div class="dropdown-menu">
+                        <a class="btn" href="client-signup.php">Client</a>
+                        <a class="btn" href="mechanic-signup.php">Mechanic</a>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>

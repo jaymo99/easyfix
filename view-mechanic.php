@@ -13,7 +13,7 @@
         <div class="my-navbar">
             
             <div class="my-logo">
-                <span>EASYFIX</span>
+                <a href="index.php"><span>EASYFIX</span></a>
             </div>
             <ul>
                 <li><a href="#">LOG IN</a></li>

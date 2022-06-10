@@ -25,11 +25,13 @@ p {
     justify-content: space-between;
 }
 
-.my-navbar .my-logo {
+.my-navbar .my-logo a{
+    text-decoration: none;
     font-size: 1.75rem;
     font-weight: 900;
     color: #000000;
 }
+
 
 .my-navbar ul{
     display: none;
@@ -38,6 +40,7 @@ p {
 
 .dropdown {
     position: relative;
+    margin-left: .8em;
 }
 
 .dropdown-menu {
@@ -66,11 +69,6 @@ p {
     transform: translateY(0);
     pointer-events: auto;
 }
-
-.dropdown + .dropdown {
-    margin-left: .8em;
-}
-
 
 .body_container {
     padding: 0 1.5%;
