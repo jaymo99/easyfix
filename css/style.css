@@ -9,6 +9,11 @@
     --primary-color: #EFEFEF;
 }
 
+/* because of bootstrap overriding */
+p {
+    margin: 0;
+}
+/*  */
 
 .my-navbar-container{
     background-color: var(--primary-color);
@@ -107,6 +112,7 @@
     max-width: 272px;
     margin: .5em;
     padding: .5em .5em 2em .5em;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
     border-radius: 10px;
     background-color: var(--primary-color);
 }
