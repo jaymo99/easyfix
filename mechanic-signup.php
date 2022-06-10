@@ -35,13 +35,13 @@
         <div class="mech-register my-responsive-form">
             <p>Register as a Mechanic</p>
             <form action="includes/mechanic-signup.inc.php" method="post">
-                <input type="text" name="businessName" id="" class="form-control" placeholder="Your Business Name">
-                <input type="text" name="location" id="" class="form-control" placeholder="Location (Town)">
-                <textarea name="description" id="" cols="" rows="3" class="form-control" placeholder="Describe where the Business is found"></textarea>
-                <input type="text" name="phoneNumber" id="" class="form-control" placeholder="Phone Number">
-                <input type="email" name="email" id="" class="form-control" placeholder="Email">
-                <input type="password" name="pwd" id="" class="form-control" placeholder="Password">
-                <input type="password" name="confirmPwd" id="" class="form-control" placeholder="Confirm password">
+                <input type="text" name="businessName" id="" class="form-control" placeholder="Your Business Name" required>
+                <input type="text" name="location" id="" class="form-control" placeholder="Location (Town)" required>
+                <textarea name="description" id="" cols="" rows="3" class="form-control" placeholder="Describe where the Business is found" required></textarea>
+                <input type="text" name="phoneNumber" id="" class="form-control" placeholder="Phone Number" required>
+                <input type="email" name="email" id="" class="form-control" placeholder="Email" required>
+                <input type="password" name="pwd" id="" class="form-control" placeholder="Password" required>
+                <input type="password" name="confirmPwd" id="" class="form-control" placeholder="Confirm password" required>
                 <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
             </form>
         </div>
