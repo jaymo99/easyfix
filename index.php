@@ -4,7 +4,7 @@
 
     //Initializing the controller
     $content = new ContentContr();
-    $mechanics = $content->myFunc();
+    $mechanics = $content->displayAllMechanics();
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +46,7 @@
             <span>Available Mechanics</span>
             <div class="mechanic_cards_container">
             <!-- form for setting passing mech_id to php -->
-            <form action="hidden.php" method="POST" class="dontDisplay" id="hiddenForm">
+            <form action="view-mechanic.php" method="POST" class="dontDisplay" id="hiddenForm">
                 <input type="hidden" name="hiddenInput" id="hiddenInput">
             </form>
 
@@ -54,7 +54,7 @@
                 <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
                     <div class="mechanic_card" id=<?php echo $mechanics[$x]['mech_id']?>>
                         <img src="graphics/mechanic-banner.jpg" alt="">
-                        <p> <?php echo $mechanics[$x]['name'] ." (". $mechanics[$x]['mech_id'] .")" ?> </p>
+                        <p> <?php echo $mechanics[$x]['name'] ?> </p>
                         <span> <?php echo $mechanics[$x]['town'] ?> </span>
                     </div>
                 <?php } ?>

@@ -1,3 +1,15 @@
+<?php
+    //Grab mechanic id
+    $mech_id = $_POST['hiddenInput'];
+
+    //Including relevant classes
+    include "includes/autoloader.inc.php";
+
+    //Initializing the controller
+    $content = new ContentContr();
+    $mechanic = $content->displayMechanic($mech_id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,25 +51,25 @@
         <div class="working-hours-flex">
 
             <div class="mech-content">
-                <h1>Mr. Handyman & sons</h1>
+                <h1> <?php echo $mechanic[0]['name'] ?> </h1>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam urna quis ipsum varius ultricies. Vivamus diam turpis, varius sit amet vulputate sit amet, pretium id libero. Fusce dignissim leo ligula, vel lacinia enim posuere eget. Mauris gravida neque in lacus auctor congue. Fusce scelerisque sit amet dui in convallis. </p>
 
                 <h2>Location</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam urna quis ipsum varius ultricies. Vivamus diam turpis, varius sit amet vulputate.</p>
+                <p> <?php echo $mechanic[0]['description'] ?> </p>
 
-                <button class="btn btn-dark">SEE IN THE MAP</button>
+                <button class="btn btn-sm btn-secondary">SEE IN THE MAP</button>
 
                 <h2>Contact</h2>
 
                 <div class="view-mech-contact">
                     <img src="graphics/telephone-call.png" alt="">
-                    <span>+254716923990</span>
+                    <span> <?php echo $mechanic[0]['phone'] ?> </span>
                 </div>
                 <div class="view-mech-contact last-mech-contact">
                     <img src="graphics/email.png" alt="">
-                    <span>email@example.com</span>
+                    <span> <?php echo $mechanic[0]['email'] ?> </span>
                 </div>
 
                 
