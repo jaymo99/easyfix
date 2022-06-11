@@ -13,3 +13,23 @@ document.addEventListener('click', e => {
         dropdown.classList.remove('active')
     })
 })
+
+const element = document.querySelector(".mechanic_cards_container");
+
+element.addEventListener('click', function(e) {
+    //id value for a mechanic card
+    let myDivId = e.target.closest('.mechanic_card').id;
+
+    // pass reference of the hidden form to a variable
+    let hiddenForm = document.getElementById("hiddenForm");
+
+    // pass reference of the hidden input to a variable
+    let hiddenInput = document.getElementById("hiddenInput");
+
+    //Assign id value of mechanic card to the form input
+    hiddenInput.value = myDivId;
+
+    //submit the hidden form with hidden value (the value is used in php)
+    hiddenForm.submit();
+
+})

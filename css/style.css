@@ -15,6 +15,10 @@ p {
 }
 /*  */
 
+.dontDisplay {
+    display: none;
+}
+
 .my-navbar-container{
     background-color: var(--primary-color);
     padding: 0.5em 1.5%;
@@ -99,10 +103,14 @@ p {
 
 .mechanic_cards_container {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+    flex-wrap:  wrap;
+    justify-content: space-between;
     padding-top: .5em;
     padding-bottom: 25em;
+}
+
+.mechanic_cards_container a {
+    color: black;
 }
 
 .mechanic_card{
@@ -111,7 +119,7 @@ p {
     max-width: 272px;
     margin: .5em;
     padding: .5em .5em 2em .5em;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     border: 1px solid #f2f8f9;
     background-color: var(--primary-color);

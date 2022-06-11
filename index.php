@@ -43,16 +43,20 @@
         <div class="map"> </div>
 
         <div class="index_page_cards">
-            <span>Mechanics Near You</span>
+            <span>Available Mechanics</span>
             <div class="mechanic_cards_container">
+            <!-- form for setting passing mech_id to php -->
+            <form action="hidden.php" method="POST" class="dontDisplay" id="hiddenForm">
+                <input type="hidden" name="hiddenInput" id="hiddenInput">
+            </form>
 
                 <!-- loop through mechanics array and display cards -->
                 <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
-                <div class="mechanic_card">
-                    <img src="graphics/mechanic-banner.jpg" alt="">
-                    <p> <?php echo $mechanics[$x]['name'] ?> </p>
-                    <span> <?php echo $mechanics[$x]['town'] ?> </span>
-                </div>
+                    <div class="mechanic_card" id=<?php echo $mechanics[$x]['mech_id']?>>
+                        <img src="graphics/mechanic-banner.jpg" alt="">
+                        <p> <?php echo $mechanics[$x]['name'] ." (". $mechanics[$x]['mech_id'] .")" ?> </p>
+                        <span> <?php echo $mechanics[$x]['town'] ?> </span>
+                    </div>
                 <?php } ?>
                 
             </div>
