@@ -106,14 +106,26 @@ p {
 }
 
 .mechanic_card{
-    display: inline;
+    display: inline-block;
+    position: relative;
     max-width: 272px;
     margin: .5em;
     padding: .5em .5em 2em .5em;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
     border-radius: 10px;
+    border: 1px solid #f2f8f9;
     background-color: var(--primary-color);
+
 }
+
+.mechanic_card:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: white;
+  }
+
 
 .mechanic_card img{
     max-width: 256px;
