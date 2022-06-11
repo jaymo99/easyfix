@@ -25,7 +25,11 @@ p {
 }
 
 .my-navbar-container{
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background-color: var(--primary-color);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
 }
 
 .my-navbar{

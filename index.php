@@ -31,7 +31,7 @@
 
                     <div class="user-loggedIn">
                         <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
-                        <li class="nav-list-item"> <a href="">Appointments</a> </li>
+                        <li class="nav-list-item"> <a href="client-appointments.php">Appointments</a> </li>
                         <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>

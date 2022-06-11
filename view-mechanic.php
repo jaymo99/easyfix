@@ -3,7 +3,12 @@
 session_start();
 
     //Grab mechanic id
+    if(isset($_POST['hiddenInput'])) {
+
     $mech_id = $_POST['hiddenInput'];
+    if(isset($_SESSION['user_id'])) {
+        $client_id = $_SESSION['user_id'];
+    }
 
     //Including relevant classes
     include "includes/autoloader.inc.php";
@@ -35,9 +40,9 @@ session_start();
                 <?php if(isset($_SESSION['user_id'])) { ?>
 
                     <div class="user-loggedIn">
-                        <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
-                        <li class="nav-list-item"> <a href="">Appointments</a> </li>
-                        <li class="nav-list-item"> <a href="">About</a> </li>
+                        <li class="nav-list-item"> <a href="index.php" class="">Home</a> </li>
+                        <li class="nav-list-item"> <a href="client-appointments.php">Appointments</a> </li>
+                        <li class="nav-list-item"> <a href="index.php">About</a> </li>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
@@ -121,29 +126,33 @@ session_start();
             <div class="book-appointment-container">
                 <div class="book-appointment my-responsive-form">
                     <h2 class="section-heading heading-center">BOOK APPOINTMENT</h2>
-                    <form action="">
+                    <form action="includes/appointment.inc.php" method="POST">
                         <div class="appointment-form-row">
                             <label for="appointment_date" class="my-placeholder">Appointment Date:</label>
-                            <input type="date" name="" id="appointment_date" class="form-control" required>
+                            <input type="date" name="date" id="appointment_date" class="form-control" required>
                         </div>
         
                         <div class="appointment-form-row">
                             <label for="appointment_time" class="my-placeholder">Your preferred Time:</label>
-                            <input type="time" name="" id="appointment_time" class="form-control" required>
+                            <input type="time" name="time" id="appointment_time" class="form-control" required>
                         </div>
         
                         <div class="appointment-form-row">
-                            <input type="text" name="" id="" class="form-control" placeholder="Vehicle Brand" required>
+                            <input type="text" name="brand" id="" class="form-control" placeholder="Vehicle Brand" required>
                         </div>
         
                         <div class="appointment-form-row">
-                            <input type="text" name="" id="" class="form-control" placeholder="Vehicle Model" required>
+                            <input type="text" name="model" id="" class="form-control" placeholder="Vehicle Model" required>
                         </div>
                         <div class="appointment-form-row">
-                            <textarea name="" id="" cols="" rows="5" class="form-control" placeholder="Description of the problem" required></textarea>
+                            <textarea name="description" id="" cols="" rows="5" class="form-control" placeholder="Description of the problem" required></textarea>
                         </div>
+
+                        <!-- hidden input for automatic client and mechanic id -->
+                        <input type="hidden" name="client_id" id="" value="<?php echo $client_id ?>">
+                        <input type="hidden" name="mechanic_id" id="" value="<?php echo $mech_id ?>">
         
-                        <input type="submit" value="SUBMIT" class="btn btn-dark btn-width">
+                        <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
                     </form>
                 </div>
             </div>
@@ -154,3 +163,9 @@ session_start();
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
 </body>
 </html>
+
+<?php 
+    } else {
+        header("location: index.php?error=fromViewMechanic");
+    }
+?>
