@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Including relevant classes
     include "includes/autoloader.inc.php";
 
@@ -26,6 +27,19 @@
                 <a href=""><span>EASYFIX</span></a>
             </div>
             <ul>
+                <?php if(isset($_SESSION['user_id'])) { ?>
+
+                    <div class="user-loggedIn">
+                        <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
+                        <li class="nav-list-item"> <a href="">Appointments</a> </li>
+                        <li class="nav-list-item"> <a href="">About</a> </li>
+                        <li class="logout-btn">
+                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
+                            <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
+                        </li>
+                    </div>
+                <?php }else{ ?>
+
                 <div class="user-loggedOut">
                     <div>
                         <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
@@ -38,15 +52,8 @@
                         </div>
                     </div>
                 </div>
+                <?php  } ?>
 
-                <!-- <div class="user-loggedIn">
-                    <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
-                    <li class="nav-list-item"> <a href="">Appointments</a> </li>
-                    <li class="nav-list-item"> <a href="">About</a> </li>
-                    <li class="nav-list-item">
-                        <img src="graphics/user.png" class="my-user-profile" alt="user-profile">
-                    </li>
-                </div> -->
             </ul>
         </div>
     </div>

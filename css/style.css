@@ -20,6 +20,10 @@ p {
     display: none;
 }
 
+.no-border {
+    border: 0;
+}
+
 .my-navbar-container{
     background-color: var(--primary-color);
 }
@@ -60,6 +64,10 @@ p {
 }
 
 .nav-list-item + .nav-list-item {
+    margin-left: 1em;
+}
+
+.logout-btn {
     margin-left: 1em;
 }
 
@@ -129,7 +137,7 @@ p {
 .mechanic_cards_container {
     display: flex;
     flex-wrap:  wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding-top: .5em;
     padding-bottom: 25em;
 }

@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
     //Grab mechanic id
     $mech_id = $_POST['hiddenInput'];
 
@@ -29,16 +32,32 @@
                 <a href="index.php"><span>EASYFIX</span></a>
             </div>
             <ul>
-                <div>
-                    <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
-                </div>
-                <div class="dropdown" data-dropdown>
-                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
-                    <div class="dropdown-menu">
-                        <a class="btn" href="client-signup.php">Client</a>
-                        <a class="btn" href="mechanic-signup.php">Mechanic</a>
+                <?php if(isset($_SESSION['user_id'])) { ?>
+
+                    <div class="user-loggedIn">
+                        <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
+                        <li class="nav-list-item"> <a href="">Appointments</a> </li>
+                        <li class="nav-list-item"> <a href="">About</a> </li>
+                        <li class="logout-btn">
+                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
+                            <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
+                        </li>
+                    </div>
+                <?php }else{ ?>
+
+                <div class="user-loggedOut">
+                    <div>
+                        <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
+                    </div>
+                    <div class="dropdown" data-dropdown>
+                        <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
+                        <div class="dropdown-menu">
+                            <a class="btn" href="client-signup.php">Client</a>
+                            <a class="btn" href="mechanic-signup.php">Mechanic</a>
+                        </div>
                     </div>
                 </div>
+                <?php  } ?>
             </ul>
         </div>
     </div>
