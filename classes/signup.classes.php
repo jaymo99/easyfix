@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class Signup extends Dbh{
 
     protected function setMechanic($businessName, $location, $description, $phoneNumber, $email, $pwd) {
@@ -24,9 +26,10 @@ class Signup extends Dbh{
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 
-        if(!$stmt->execute(array($firstName, $middleName, $lastName, $email, $pwd))) {
+        if(!$stmt->execute(array($firstName, $middleName, $lastName, $email, $hashedPwd))) {
             $stmt = null;
-            header("location: ../client-signup.php?error=stmtfailedONE");
+            $_SESSION['form_error'] = "Critical error";
+            header("location: ../client-signup.php?error=stmtfailedTWO");
             exit();
         }
 
