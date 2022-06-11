@@ -36,15 +36,15 @@
         
             <div class="mech-register my-responsive-form">
                 <p>LOG IN</p>
-                <form action="">
-                    <select name="" id="" class="form-control" required>
+                <form action="includes/login.inc.php" method="POST">
+                    <select name="user_category" id="" class="form-control" required>
                         <option class="my-placeholder" value="" selected disabled>Choose an Option</option>
-                        <option value="">I'm a Mechanic</option>
-                        <option value="">I'm a Client</option>
+                        <option value="mechanic">I'm a Mechanic</option>
+                        <option value="client">I'm a Client</option>
                         </select>
-                    <input type="email" name="" id="" class="form-control" placeholder="Email" required>
-                    <input type="password" name="" id="" class="form-control" placeholder="Password" required>
-                    <input type="submit" value="SUBMIT" class="btn btn-dark btn-width">
+                    <input type="email" name="email" id="" class="form-control" placeholder="Email" required>
+                    <input type="password" name="pwd" id="" class="form-control" placeholder="Password" required>
+                    <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
                 </form>
             </div>
         
