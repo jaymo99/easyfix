@@ -26,39 +26,50 @@
                 <a href=""><span>EASYFIX</span></a>
             </div>
             <ul>
-                <div>
-                    <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
-                </div>
-                <div class="dropdown" data-dropdown>
-                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
-                    <div class="dropdown-menu">
-                        <a class="btn" href="client-signup.php">Client</a>
-                        <a class="btn" href="mechanic-signup.php">Mechanic</a>
+                <div class="user-loggedOut">
+                    <div>
+                        <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
+                    </div>
+                    <div class="dropdown" data-dropdown>
+                        <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
+                        <div class="dropdown-menu">
+                            <a class="btn" href="client-signup.php">Client</a>
+                            <a class="btn" href="mechanic-signup.php">Mechanic</a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- <div class="user-loggedIn">
+                    <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
+                    <li class="nav-list-item"> <a href="">Appointments</a> </li>
+                    <li class="nav-list-item"> <a href="">About</a> </li>
+                    <li class="nav-list-item">
+                        <img src="graphics/user.png" class="my-user-profile" alt="user-profile">
+                    </li>
+                </div> -->
             </ul>
         </div>
     </div>
     <div class="body_container">
-        <div class="map"> </div>
-
-        <div class="index_page_cards">
-            <span>Available Mechanics</span>
-            <div class="mechanic_cards_container">
-            <!-- form for setting passing mech_id to php -->
-            <form action="view-mechanic.php" method="POST" class="dontDisplay" id="hiddenForm">
-                <input type="hidden" name="hiddenInput" id="hiddenInput">
-            </form>
-
-                <!-- loop through mechanics array and display cards -->
-                <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
-                    <div class="mechanic_card" id=<?php echo $mechanics[$x]['mech_id']?>>
-                        <img src="graphics/mechanic-banner.jpg" alt="">
-                        <p> <?php echo $mechanics[$x]['name'] ?> </p>
-                        <span> <?php echo $mechanics[$x]['town'] ?> </span>
-                    </div>
-                <?php } ?>
+        <div class="reduced_body">
+            <div class="map"> </div>
+            <div class="index_page_cards">
+                <span>Available Mechanics</span>
+                <div class="mechanic_cards_container">
+                    <!-- form for setting passing mech_id to php -->
+                    <form action="view-mechanic.php" method="POST" class="dontDisplay" id="hiddenForm">
+                        <input type="hidden" name="hiddenInput" id="hiddenInput">
+                    </form>
+                        <!-- loop through mechanics array and display cards -->
+                        <?php for($x=0; $x<sizeof($mechanics); $x++){ ?>
+                            <div class="mechanic_card" id=<?php echo $mechanics[$x]['mech_id']?>>
+                                <img src="graphics/mechanic-banner.jpg" alt="">
+                                <p> <?php echo $mechanics[$x]['name'] ?> </p>
+                                <span> <?php echo $mechanics[$x]['town'] ?> </span>
+                            </div>
+                        <?php } ?>
                 
+                </div>
             </div>
         </div>
     </div>

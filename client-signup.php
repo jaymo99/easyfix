@@ -36,23 +36,27 @@
     </div>
     
     <div class="body_container center">
-        <div class="mech-register my-responsive-form">
-            <p>Register as a Client</p>
-            <?php if(isset($_SESSION['form_error'])) {?>
-            <div class="alert alert-danger" role="alert">
-                <strong>Error! </strong>
-                <?php echo $_SESSION['form_error']; unset($_SESSION['form_error']) ?>
+        <div class="reduced_body">
+        
+            <div class="mech-register my-responsive-form">
+                <p>Register as a Client</p>
+                <?php if(isset($_SESSION['form_error'])) {?>
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error! </strong>
+                    <?php echo $_SESSION['form_error']; unset($_SESSION['form_error']) ?>
+                </div>
+                <?php  }  ?>
+                <form action="includes/client-signup.inc.php" method="post">
+                    <input type="text" name="firstName" id="" class="form-control" placeholder="First Name" required>
+                    <input type="text" name="middleName" id="" class="form-control" placeholder="Middle Name" required>
+                    <input type="text" name="lastName" id="" class="form-control" placeholder="Last Name" required>
+                    <input type="email" name="email" id="" class="form-control" placeholder="Email" required>
+                    <input type="password" name="pwd" id="" class="form-control" placeholder="Password" required>
+                    <input type="password" name="confirmPwd" id="" class="form-control" placeholder="Confirm password" required>
+                    <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
+                </form>
             </div>
-            <?php  }  ?>
-            <form action="includes/client-signup.inc.php" method="post">
-                <input type="text" name="firstName" id="" class="form-control" placeholder="First Name" required>
-                <input type="text" name="middleName" id="" class="form-control" placeholder="Middle Name" required>
-                <input type="text" name="lastName" id="" class="form-control" placeholder="Last Name" required>
-                <input type="email" name="email" id="" class="form-control" placeholder="Email" required>
-                <input type="password" name="pwd" id="" class="form-control" placeholder="Password" required>
-                <input type="password" name="confirmPwd" id="" class="form-control" placeholder="Confirm password" required>
-                <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
-            </form>
+        
         </div>
     </div>
 

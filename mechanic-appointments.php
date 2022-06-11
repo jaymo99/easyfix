@@ -23,42 +23,44 @@
     </div>
     
     <div class="body_container">
-        <div class="recent-appointments">
-            <h1 class="section-heading">UPCOMING APPOINTMENTS</h1>
-            <div class="appointments-collection">
-                <div class="appointment-card-container service-upcoming">
-                    <div class="appointment-card">
-                        <div class="mech-appointment-title">
-                            <span class="appointment-title-one">James Mwaura Kariuki</span>
-                            <span class="appointment-title-two">Range rover Sport</span>
-                        </div>
-                        <div class="appointment-card-content">
-                            <div class="appointment-card-col">
-                                <img src="graphics/appointment.png" alt="">
-                                <div class="appointment-card-col2">
-                                    <span class="span-status">15-Feb-2022</span>
-                                    <span class="span-date">08:00 HRS</span>
-                                </div>
+        <div class="reduced_body">
+            <div class="recent-appointments">
+                <h1 class="section-heading">UPCOMING APPOINTMENTS</h1>
+                <div class="appointments-collection">
+                    <div class="appointment-card-container service-upcoming">
+                        <div class="appointment-card">
+                            <div class="mech-appointment-title">
+                                <span class="appointment-title-one">James Mwaura Kariuki</span>
+                                <span class="appointment-title-two">Range rover Sport</span>
                             </div>
-                            <button class="btn btn-dark btn-sm">DETAILS</button>
+                            <div class="appointment-card-content">
+                                <div class="appointment-card-col">
+                                    <img src="graphics/appointment.png" alt="">
+                                    <div class="appointment-card-col2">
+                                        <span class="span-status">15-Feb-2022</span>
+                                        <span class="span-date">08:00 HRS</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-dark btn-sm">DETAILS</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="appointment-card-container service-upcoming">
-                    <div class="appointment-card">
-                        <div class="mech-appointment-title">
-                            <span class="appointment-title-one">James Mwaura Kariuki</span>
-                            <span class="appointment-title-two">Range rover Sport</span>
-                        </div>
-                        <div class="appointment-card-content">
-                            <div class="appointment-card-col">
-                                <img src="graphics/appointment.png" alt="">
-                                <div class="appointment-card-col2">
-                                    <span class="span-status">15-Feb-2022</span>
-                                    <span class="span-date">08:00 HRS</span>
-                                </div>
+                    <div class="appointment-card-container service-upcoming">
+                        <div class="appointment-card">
+                            <div class="mech-appointment-title">
+                                <span class="appointment-title-one">James Mwaura Kariuki</span>
+                                <span class="appointment-title-two">Range rover Sport</span>
                             </div>
-                            <button class="btn btn-dark btn-sm">DETAILS</button>
+                            <div class="appointment-card-content">
+                                <div class="appointment-card-col">
+                                    <img src="graphics/appointment.png" alt="">
+                                    <div class="appointment-card-col2">
+                                        <span class="span-status">15-Feb-2022</span>
+                                        <span class="span-date">08:00 HRS</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-dark btn-sm">DETAILS</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,8 +88,8 @@
                     </div>
                 </div>
                 
-            </div>
         </div>
+    </div>
 
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
 </body>

@@ -6,6 +6,7 @@
 }
 
 :root{
+    font-size: 14px;
     --primary-color: #EFEFEF;
 }
 
@@ -21,12 +22,13 @@ p {
 
 .my-navbar-container{
     background-color: var(--primary-color);
-    padding: 0.5em 1.5%;
 }
 
 .my-navbar{
     display: flex;
     justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
 }
 
 .my-navbar .my-logo a{
@@ -39,7 +41,35 @@ p {
 
 .my-navbar ul{
     display: none;
+    list-style: none;
     margin: 0;
+}
+
+.nav-list-item a{
+    padding: .5em;
+    font-size: .95rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: black
+}
+
+.nav-list-item a:hover, .active-link {
+    background-color: white;
+    border-bottom: 4px solid black;
+}
+
+.nav-list-item + .nav-list-item {
+    margin-left: 1em;
+}
+
+.user-loggedIn {
+    display: flex;
+    align-items: center;
+}
+
+.my-user-profile {
+    width: 37px;
 }
 
 .dropdown {
@@ -74,15 +104,10 @@ p {
     pointer-events: auto;
 }
 
-.body_container {
-    padding: 0 1.5%;
+.reduced_body {
+    width: 85%;
+    margin: 0 auto;
 }
-
-/* .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .map{
     height: 70vh;
@@ -104,7 +129,7 @@ p {
 .mechanic_cards_container {
     display: flex;
     flex-wrap:  wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-top: .5em;
     padding-bottom: 25em;
 }
@@ -384,7 +409,10 @@ p {
 
 @media only screen and (min-width: 600px){
 
-    .my-navbar ul{
+    :root{
+        font-size: 16px;    }
+
+    .my-navbar ul, .user-loggedOut{
         display: flex;
         align-items: center;
     }

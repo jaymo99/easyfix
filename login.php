@@ -32,18 +32,22 @@
     </div>
     
     <div class="body_container center">
-        <div class="mech-register my-responsive-form">
-            <p>LOG IN</p>
-            <form action="">
-                <select name="" id="" class="form-control" required>
-                    <option class="my-placeholder" value="" selected disabled>Choose an Option</option>
-                    <option value="">I'm a Mechanic</option>
-                    <option value="">I'm a Client</option>
-                    </select>
-                <input type="email" name="" id="" class="form-control" placeholder="Email" required>
-                <input type="password" name="" id="" class="form-control" placeholder="Password" required>
-                <input type="submit" value="SUBMIT" class="btn btn-dark btn-width">
-            </form>
+        <div class="reduced_body">
+        
+            <div class="mech-register my-responsive-form">
+                <p>LOG IN</p>
+                <form action="">
+                    <select name="" id="" class="form-control" required>
+                        <option class="my-placeholder" value="" selected disabled>Choose an Option</option>
+                        <option value="">I'm a Mechanic</option>
+                        <option value="">I'm a Client</option>
+                        </select>
+                    <input type="email" name="" id="" class="form-control" placeholder="Email" required>
+                    <input type="password" name="" id="" class="form-control" placeholder="Password" required>
+                    <input type="submit" value="SUBMIT" class="btn btn-dark btn-width">
+                </form>
+            </div>
+        
         </div>
     </div>
 

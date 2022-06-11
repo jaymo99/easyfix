@@ -23,40 +23,42 @@
     </div>
     
     <div class="body_container">
-        <div class="recent-appointments">
-            <h1 class="section-heading">RECENT APPOINTMENTS</h1>
-            <div class="appointments-collection">
-                <div class="appointment-card-container service-pending">
-                    <div class="appointment-card">
-                        <div class="appointment-card-title">
-                            <span>Urban Motors General Servicing and Repair Center</span>
-                        </div>
-                        <div class="appointment-card-content">
-                            <div class="appointment-card-col">
-                                <img src="graphics/stopwatch.png" alt="">
-                                <div class="appointment-card-col2">
-                                    <span class="span-status">Pending Approval</span>
-                                    <span class="span-date">15-Feb-2022</span>
-                                </div>
+        <div class="reduced_body">
+            <div class="recent-appointments">
+                <h1 class="section-heading">RECENT APPOINTMENTS</h1>
+                <div class="appointments-collection">
+                    <div class="appointment-card-container service-pending">
+                        <div class="appointment-card">
+                            <div class="appointment-card-title">
+                                <span>Urban Motors General Servicing and Repair Center</span>
                             </div>
-                            <button class="btn btn-dark btn-sm">DETAILS</button>
+                            <div class="appointment-card-content">
+                                <div class="appointment-card-col">
+                                    <img src="graphics/stopwatch.png" alt="">
+                                    <div class="appointment-card-col2">
+                                        <span class="span-status">Pending Approval</span>
+                                        <span class="span-date">15-Feb-2022</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-dark btn-sm">DETAILS</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="appointment-card-container service-pending">
-                    <div class="appointment-card">
-                        <div class="appointment-card-title">
-                            <span>Urban Motors General Servicing and Repair Center</span>
-                        </div>
-                        <div class="appointment-card-content">
-                            <div class="appointment-card-col">
-                                <img src="graphics/stopwatch.png" alt="">
-                                <div class="appointment-card-col2">
-                                    <span class="span-status">Pending Approval</span>
-                                    <span class="span-date">15-Feb-2022</span>
-                                </div>
+                    <div class="appointment-card-container service-pending">
+                        <div class="appointment-card">
+                            <div class="appointment-card-title">
+                                <span>Urban Motors General Servicing and Repair Center</span>
                             </div>
-                            <button class="btn btn-dark btn-sm">DETAILS</button>
+                            <div class="appointment-card-content">
+                                <div class="appointment-card-col">
+                                    <img src="graphics/stopwatch.png" alt="">
+                                    <div class="appointment-card-col2">
+                                        <span class="span-status">Pending Approval</span>
+                                        <span class="span-date">15-Feb-2022</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-dark btn-sm">DETAILS</button>
+                            </div>
                         </div>
                     </div>
                 </div>
