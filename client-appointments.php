@@ -6,6 +6,7 @@
     //Initializing the controller
     $content = new ContentContr();
     $appointments = $content->displayClientAppointments($_SESSION['user_id']);
+    
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@
     <title>My appointments</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
     <div class="my-navbar-container">
@@ -61,11 +63,49 @@
             <div class="recent-appointments">
                 <h1 class="section-heading">RECENT APPOINTMENTS</h1>
                 <div class="appointments-collection">
+                    <?php
+                     if(sizeof($appointments) < 1){
+                    ?>   
+                        <div class="alert alert-info" role="alert">
+                            <h4 class="alert-heading">You Don't have Appointments!</h4>
+                            <hr>
+                            <p>There's nothing to show here at the moment. Once you book appointments they will be listed here.</p>
+                        </div>
+                    <?php    
+                     }else{
+                         foreach($appointments as $appointment) { 
+                            //create a unique id for each modal, in order to view dynamic
+                            $appointment_modal_id = "modal_" . $appointment['appointment_id'];
 
-                    <?php foreach($appointments as $appointment) { 
-                            if($appointment['approval_status'] == 0) {
-
+                                if($appointment['approval_status'] == 0) {
+                     
                     ?>
+                    <!-- Start of Appointment details modal -->
+                    <div class="modal fade" id="<?php echo $appointment_modal_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title appointment-modal-title" id="exampleModalLabel">Pending Approval</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                
+                                <div class="modal-body"> 
+                                    <div class="appointment-modal-content">
+                                        <h2><?php echo $appointment['name']; ?></h2>
+                                        <span><?php echo $appointment['town']; ?></span>
+                                        <h3>SCHEDULED : <?php echo $appointment['date']; ?> </h3>
+                                        <p> <?php echo $appointment['problem_description']; ?> </p>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Appointment details modal -->
+
                     <div class="appointment-card-container <?php echo"service-pending"; } ?>">
                         <div class="appointment-card">
                             <div class="appointment-card-title">
@@ -83,11 +123,11 @@
                                         <span class="span-date"> <?php echo $appointment['date']; ?> </span>
                                     </div>
                                 </div>
-                                <button class="btn btn-dark btn-sm">DETAILS</button>
+                                <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#<?php echo $appointment_modal_id;?>">DETAILS</button>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php }} ?>
 
 
 

@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-unset($_SESSION['user_id']);
+session_unset();
+session_destroy();
 
 //Go back to front page
 header("location: ../index.php?error=loggedOut");

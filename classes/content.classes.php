@@ -32,7 +32,7 @@ class Content extends Dbh {
     }
 
     protected function getClientAppointments($client_id) {
-        $sql = "SELECT mechanic.name, appointment.approval_status, appointment.date
+        $sql = "SELECT mechanic.name, mechanic.town, appointment.appointment_id, appointment.approval_status, appointment.date, appointment.problem_description
         FROM appointment
         INNER JOIN mechanic ON appointment.mechanic_mech_id = mechanic.mech_id;";
 
