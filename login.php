@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +40,16 @@
         
             <div class="mech-register my-responsive-form">
                 <p>LOG IN</p>
+
+                <?php if(isset($_SESSION['form-error'])) { ?>
+                    <div class="alert alert-danger" role="alert">
+                    <strong>Attention! </strong>
+                    <?php echo $_SESSION['form-error'];
+                        unset($_SESSION['form-error']);
+                    ?>
+                    </div>
+                <?php } ?>
+
                 <form action="includes/login.inc.php" method="POST">
                     <select name="user_category" id="" class="form-control" required>
                         <option class="my-placeholder" value="" selected disabled>Choose an Option</option>

@@ -14,6 +14,12 @@ class ContentContr extends Content {
            
         return $myVar;
     }
+
+    public function displayClientAppointments($client_id) {
+        $myVar = $this->getClientAppointments($client_id);
+           
+        return $myVar;
+    }
     
     
 }

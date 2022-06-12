@@ -1,5 +1,11 @@
 <?php
-session_start();
+    session_start();
+
+    include "includes/autoloader.inc.php";
+    
+    //Initializing the controller
+    $content = new ContentContr();
+    $appointments = $content->displayClientAppointments($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>
@@ -55,44 +61,40 @@ session_start();
             <div class="recent-appointments">
                 <h1 class="section-heading">RECENT APPOINTMENTS</h1>
                 <div class="appointments-collection">
-                    <div class="appointment-card-container service-pending">
+
+                    <?php foreach($appointments as $appointment) { 
+                            if($appointment['approval_status'] == 0) {
+
+                    ?>
+                    <div class="appointment-card-container <?php echo"service-pending"; } ?>">
                         <div class="appointment-card">
                             <div class="appointment-card-title">
-                                <span>Urban Motors General Servicing and Repair Center</span>
+                                <span> <?php echo $appointment['name']; ?> </span>
                             </div>
                             <div class="appointment-card-content">
                                 <div class="appointment-card-col">
+                                    <?php if($appointment['approval_status'] == 0) { ?>
                                     <img src="graphics/stopwatch.png" alt="">
+                                    <?php } ?>
                                     <div class="appointment-card-col2">
+                                        <?php if($appointment['approval_status'] == 0) { ?>
                                         <span class="span-status">Pending Approval</span>
-                                        <span class="span-date">15-Feb-2022</span>
+                                        <?php } ?>
+                                        <span class="span-date"> <?php echo $appointment['date']; ?> </span>
                                     </div>
                                 </div>
                                 <button class="btn btn-dark btn-sm">DETAILS</button>
                             </div>
                         </div>
                     </div>
-                    <div class="appointment-card-container service-pending">
-                        <div class="appointment-card">
-                            <div class="appointment-card-title">
-                                <span>Urban Motors General Servicing and Repair Center</span>
-                            </div>
-                            <div class="appointment-card-content">
-                                <div class="appointment-card-col">
-                                    <img src="graphics/stopwatch.png" alt="">
-                                    <div class="appointment-card-col2">
-                                        <span class="span-status">Pending Approval</span>
-                                        <span class="span-date">15-Feb-2022</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-dark btn-sm">DETAILS</button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
+
+
+
                 </div>
             </div>
         
-            <div class="recent-appointments">
+            <!-- <div class="recent-appointments">
                 <h1 class="section-heading">HISTORY</h1>
                 <div class="appointments-collection">
                     <div class="appointment-card-container service-pending">
@@ -130,7 +132,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     <script src="bootstrap/js/bootstrap.bundle.js"></script>

@@ -30,4 +30,21 @@ class Content extends Dbh {
         $results = $stmt->fetchAll();
         return $results;
     }
+
+    protected function getClientAppointments($client_id) {
+        $sql = "SELECT mechanic.name, appointment.approval_status, appointment.date
+        FROM appointment
+        INNER JOIN mechanic ON appointment.mechanic_mech_id = mechanic.mech_id;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        if(!$stmt->execute(array($client_id))) {
+            $stmt = null;
+            header("location: ../client-appointments.php?error=appointmentContentFailed");
+            exit();
+        }
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
 }

@@ -149,8 +149,10 @@ session_start();
                         </div>
 
                         <!-- hidden input for automatic client and mechanic id -->
-                        <input type="hidden" name="client_id" id="" value="<?php echo $client_id ?>">
-                        <input type="hidden" name="mechanic_id" id="" value="<?php echo $mech_id ?>">
+                        <?php if(isset($client_id)) { ?>
+                        <input type="hidden" name="client_id" id="" value="<?php echo $client_id ; }?>">
+                        <?php if(isset($mech_id)) { ?>
+                        <input type="hidden" name="mechanic_id" id="" value="<?php echo $mech_id ; }?>">
         
                         <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
                     </form>
@@ -166,6 +168,7 @@ session_start();
 
 <?php 
     } else {
-        header("location: index.php?error=fromViewMechanic");
+        $_SESSION['form-error'] = "You need to log in first!";
+        header("location: login.php?error=fromViewMechanic");
     }
 ?>
