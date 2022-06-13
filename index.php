@@ -31,7 +31,13 @@
 
                     <div class="user-loggedIn">
                         <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
-                        <li class="nav-list-item"> <a href="client-appointments.php">Appointments</a> </li>
+                        <li class="nav-list-item">
+                            <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") { ?>
+                                <a href="client-appointments.php">Appointments</a>
+                            <?php } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "mechanic") { ?>
+                                <a href="mechanic-appointments.php">Appointments</a>
+                            <?php } ?>
+                            </li>
                         <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>

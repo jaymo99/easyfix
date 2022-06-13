@@ -3,9 +3,12 @@
 session_start();
 
     //Grab mechanic id
-    if(isset($_POST['hiddenInput'])) {
+    if(isset($_POST['hiddenInput']) || isset($_SESSION['mech_id'])) {
 
-    $mech_id = $_POST['hiddenInput'];
+    if(isset($_POST['hiddenInput'])) {
+        $_SESSION['mech_id'] = $_POST['hiddenInput'];
+    }
+    
     if(isset($_SESSION['user_id'])) {
         $client_id = $_SESSION['user_id'];
     }
@@ -15,7 +18,7 @@ session_start();
 
     //Initializing the controller
     $content = new ContentContr();
-    $mechanic = $content->displayMechanic($mech_id);
+    $mechanic = $content->displayMechanic($_SESSION['mech_id']);
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +43,15 @@ session_start();
                 <?php if(isset($_SESSION['user_id'])) { ?>
 
                     <div class="user-loggedIn">
-                        <li class="nav-list-item"> <a href="index.php" class="">Home</a> </li>
-                        <li class="nav-list-item"> <a href="client-appointments.php">Appointments</a> </li>
-                        <li class="nav-list-item"> <a href="index.php">About</a> </li>
+                        <li class="nav-list-item"> <a href="index.php">Home</a> </li>
+                        <li class="nav-list-item">
+                            <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") { ?>
+                                <a href="client-appointments.php">Appointments</a>
+                            <?php } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "mechanic") { ?>
+                                <a href="mechanic-appointments.php">Appointments</a>
+                            <?php } ?>
+                            </li>
+                        <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
@@ -63,6 +72,7 @@ session_start();
                     </div>
                 </div>
                 <?php  } ?>
+
             </ul>
         </div>
     </div>

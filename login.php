@@ -48,7 +48,14 @@
                         unset($_SESSION['form-error']);
                     ?>
                     </div>
-                <?php } ?>
+                <?php }elseif(isset($_SESSION['form-success'])) { ?>
+                    <div class="alert alert-success" role="alert">
+                    <strong>Success! </strong>
+                    <?php echo $_SESSION['form-success'];
+                        unset($_SESSION['form-success']);
+                    ?>
+                    </div>
+                <?php }?>
 
                 <form action="includes/login.inc.php" method="POST">
                     <select name="user_category" id="" class="form-control" required>

@@ -40,10 +40,10 @@
         
             <div class="mech-register my-responsive-form">
                 <p>Register as a Mechanic</p>
-                <?php if(isset($_SESSION['form_error'])) {?>
+                <?php if(isset($_SESSION['form-error'])) {?>
                 <div class="alert alert-danger" role="alert">
-                    <strong>Error! </strong>
-                    <?php echo $_SESSION['form_error']; unset($_SESSION['form_error']) ?>
+                    <strong>Attention! </strong>
+                    <?php echo $_SESSION['form-error']; unset($_SESSION['form-error']) ?>
                 </div>
                 <?php  }  ?>
                 <form action="includes/mechanic-signup.inc.php" method="post">

@@ -21,14 +21,14 @@ class ClientSignupContr extends Signup {
 
     public function signupClient() {
         if($this->pwdMatch($this->pwd, $this->confirmPwd) == false) {
-            $_SESSION['form_error'] = "Password Mismatch";
+            $_SESSION['form-error'] = "Password Mismatch";
             header("location: ../client-signup.php?error=passwordMismatch");
             exit();
 
         }
 
         if($this->isEmailTaken($this->email, "client") == true) {
-            $_SESSION['form_error'] = "Invalid email";
+            $_SESSION['form-error'] = "email rejected";
             header("location: ../client-signup.php?error=emailTaken");
             exit();
         }

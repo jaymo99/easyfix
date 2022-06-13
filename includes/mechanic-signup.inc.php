@@ -19,6 +19,7 @@ if(isset($_POST["submit"])){
     //Running error handlers and user signup
     $signup->signupMechanic();
     
-    //Going back to front page 
-    header("location: ../mechanic-signup.php?error=none");
+    //Going back to front page
+    $_SESSION['form-success'] = "You can now proceed to login"; 
+    header("location: ../login.php?error=mechRegisteredSuccessfully");
 }

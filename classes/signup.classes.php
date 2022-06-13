@@ -12,7 +12,7 @@ class Signup extends Dbh{
 
         if(!$stmt->execute(array($businessName, $location, $description, $phoneNumber, $email, $hashedPwd))) {
             $stmt = null;
-            $_SESSION['form_error'] = "Critical error";
+            $_SESSION['form-error'] = "Critical error, contact support";
             header("location: ../mechanic-signup.php?error=stmtfailedONE");
             exit();
         }
@@ -28,7 +28,7 @@ class Signup extends Dbh{
 
         if(!$stmt->execute(array($firstName, $middleName, $lastName, $email, $hashedPwd))) {
             $stmt = null;
-            $_SESSION['form_error'] = "Critical error";
+            $_SESSION['form-error'] = "Critical error, contact support";
             header("location: ../client-signup.php?error=stmtfailedTWO");
             exit();
         }
@@ -43,10 +43,10 @@ class Signup extends Dbh{
         if(!$stmt->execute(array($email))) {
             $stmt = null;
             if($table == "mechanic"){
-                $_SESSION['form_error'] = "Critical error";
+                $_SESSION['form-error'] = "Critical error, contact support";
                 header("location: ../mechanic-signup.php?error=stmtfailedTWO");
             }else{
-                $_SESSION['form_error'] = "Critical error";
+                $_SESSION['form-error'] = "Critical error, contact support";
                 header("location: ../client-signup.php?error=stmtfailedTWO");
             }
             exit();

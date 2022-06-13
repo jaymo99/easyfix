@@ -24,14 +24,14 @@ class MechSignupContr extends Signup {
     
     public function signupMechanic() {
         if($this->pwdMatch($this->pwd, $this->confirmPwd) == false) {
-            $_SESSION['form_error'] = "Password Mismatch";
+            $_SESSION['form-error'] = "Password Mismatch";
             header("location: ../mechanic-signup.php?error=passwordMismatch");
             exit();
 
         }
 
         if($this->isEmailTaken($this->email, "mechanic") == true) {
-            $_SESSION['form_error'] = "Invalid email";
+            $_SESSION['form-error'] = "email rejected";
             header("location: ../mechanic-signup.php?error=emailTaken");
             exit();
         }

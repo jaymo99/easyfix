@@ -31,9 +31,15 @@
                 <?php if(isset($_SESSION['user_id'])) { ?>
 
                     <div class="user-loggedIn">
-                        <li class="nav-list-item"> <a href="index.php" class="">Home</a> </li>
-                        <li class="nav-list-item"> <a href="client-appointments.php" class="active-link"s>Appointments</a> </li>
-                        <li class="nav-list-item"> <a href="index.php">About</a> </li>
+                        <li class="nav-list-item"> <a href="index.php">Home</a> </li>
+                        <li class="nav-list-item">
+                            <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") { ?>
+                                <a href="client-appointments.php" class="active-link">Appointments</a>
+                            <?php } elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "mechanic") { ?>
+                                <a href="mechanic-appointments.php">Appointments</a>
+                            <?php } ?>
+                            </li>
+                        <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
@@ -54,6 +60,7 @@
                     </div>
                 </div>
                 <?php  } ?>
+
             </ul>
         </div>
     </div>

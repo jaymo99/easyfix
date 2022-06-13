@@ -15,8 +15,7 @@ if(isset($_POST["submit"])) {
     if($user_category == "client"){
         $signup->loginClient();
     }elseif($user_category == "mechanic"){
-        header("location: ../login.php?error=notYetReady");
-        exit();
+        $signup->loginMechanic();
     }
 
     header("location: ../index.php?error=none");

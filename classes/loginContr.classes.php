@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class LoginContr extends Login {
 
@@ -12,12 +13,22 @@ class LoginContr extends Login {
 
     public function loginClient() {
         if($this->isEmailTaken($this->email, "client") == false) {
-            $_SESSION['form_error'] = "Invalid credentials";
+            $_SESSION['form-error'] = "Invalid Client credentials";
             header("location: ../login.php?error=invalidCredentials");
             exit();
         }
 
-        $this->getClient($this->email, $this->pwd);
+        $this->getClient($this->email, $this->pwd, "client");
+    }
+
+    public function loginMechanic() {
+        if($this->isEmailTaken($this->email, "mechanic") == false) {
+            $_SESSION['form-error'] = "Invalid Mechanic credentials";
+            header("location: ../login.php?error=invalidCredentials");
+            exit();
+        }
+
+        $this->getClient($this->email, $this->pwd, "mechanic");
     }
 
 
