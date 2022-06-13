@@ -20,6 +20,12 @@ class ContentContr extends Content {
            
         return $myVar;
     }
+
+    public function displayMechanicAppointments($mech_id) {
+        $myVar = $this->getMechanicAppointments($mech_id);
+           
+        return $myVar;
+    }
     
     
 }
