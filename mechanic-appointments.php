@@ -66,27 +66,124 @@
     
     <div class="body_container">
         <div class="reduced_body">
+            <?php
+                if(sizeof($appointments) < 1){
+            ?>   
+                <div class="alert alert-info" role="alert" style="margin-top: .8em">
+                    <h4 class="alert-heading">You Don't have Appointments!</h4>
+                    <hr>
+                    <p>There's nothing to show here at the moment. Once Clients book appointments they will be listed here.</p>
+                </div>
+            
+
+            <!-- check if there are any approved appointments to display -->
+            <?php
+                } else{
+
+                    $counter = 0;
+                    foreach($appointments as $appointment) {
+                        if($appointment['approval_status'] == 2) {
+                            $counter++;
+                        }
+                    }
+
+                    if($counter > 0){
+            ?>
+
             <div class="recent-appointments">
                 <h1 class="section-heading">UPCOMING APPOINTMENTS</h1>
                 <div class="appointments-collection">
-                    <?php
-                     if(sizeof($appointments) < 1){
-                    ?>   
-                        <div class="alert alert-info" role="alert">
-                            <h4 class="alert-heading">You Don't have Appointments!</h4>
-                            <hr>
-                            <p>There's nothing to show here at the moment. Once Clients book appointments they will be listed here.</p>
-                        </div>
+
+                     
                     <?php    
-                     }else{
-                         foreach($appointments as $appointment) { 
-                            //create a unique id for each modal, in order to view dynamic
+                        foreach($appointments as $appointment) { 
+                        //create a unique id for each modal, in order to view different content in each
+                        $appointment_modal_id = "modal_" . $appointment['appointment_id'];
+                        
+                        //A modal id for appointments whose status is already updated
+                        //These modals dont have 'accept' and 'reject' buttons
+                        $alt_appointment_modal_id = $appointment_modal_id . "_alt";
+
+
+                            if($appointment['approval_status'] == 2) {
+                     
+                    ?>
+                    <!-- Start of Appointment details modal (first type of modal -- without 'accept' and 'reject' buttons -->
+                    <div class="modal fade" id="<?php echo $alt_appointment_modal_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title appointment-modal-title" id="exampleModalLabel">Already Approved</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                
+                                <div class="modal-body"> 
+                                    <div class="appointment-modal-content">
+                                        <h2><?php echo $appointment['f_name']." ".$appointment['m_name']." ".$appointment['l_name']; ?></h2>
+                                        <span><?php echo $appointment['vehicle_brand']." ".$appointment['vehicle_model']; ?></span>
+                                        <h3>SCHEDULED : <?php echo $appointment['date']; ?> </h3>
+                                        <p> <?php echo $appointment['problem_description']; ?> </p>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Appointment details modal (first type of modal) -->
+
+                    <div class="appointment-card-container service-upcoming">
+                        <div class="appointment-card">
+                            <div class="mech-appointment-title">
+                                <span class="appointment-title-one"> <?php echo $appointment['f_name']." ".$appointment['m_name']." ".$appointment['l_name']; ?> </span>
+                                <span class="appointment-title-two"> <?php echo $appointment['vehicle_brand']." ".$appointment['vehicle_model']; ?> </span>
+                            </div>
+                            <div class="appointment-card-content">
+                                <div class="appointment-card-col">
+                                    <img src="graphics/appointment.png" alt="">
+                                    <div class="appointment-card-col2">
+                                        <span class="span-status"> <?php echo $appointment['date']; ?> </span>
+                                        <span class="span-date"> <?php echo $appointment['time']; ?> </span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#<?php echo $alt_appointment_modal_id;?>">DETAILS</button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }} ?>
+
+
+
+                </div>
+            </div>
+
+            <!-- Check if there are any pending appointments to display -->
+            <?php
+                    }
+                    $counter = 0;
+                    foreach($appointments as $appointment) {
+                        if($appointment['approval_status'] == 0) {
+                            $counter++;
+                        }
+                    }
+
+                    if($counter > 0){
+            ?>
+        
+            <div class="recent-appointments">
+                <h1 class="section-heading">PENDING APPROVAL</h1>
+                <div class="appointments-collection">
+                    <?php  
+                        foreach($appointments as $appointment) { 
+                            //create a unique id for each modal, in order to view different content in each
                             $appointment_modal_id = "modal_" . $appointment['appointment_id'];
 
                                 if($appointment['approval_status'] == 0) {
-                     
                     ?>
-                    <!-- Start of Appointment details modal -->
+
+                    <!-- Start of Appointment details modal (second type of modal - with 'accept' and 'reject' buttons) -->
                     <div class="modal fade" id="<?php echo $appointment_modal_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -121,9 +218,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End of Appointment details modal -->
+                    <!-- End of Appointment details modal  (second type of modal)-->
 
-                    <div class="appointment-card-container <?php echo"service-pending";  ?>">
+                    <div class="appointment-card-container service-pending">
                         <div class="appointment-card">
                             <div class="mech-appointment-title">
                                 <span class="appointment-title-one"> <?php echo $appointment['f_name']." ".$appointment['m_name']." ".$appointment['l_name']; ?> </span>
@@ -131,13 +228,9 @@
                             </div>
                             <div class="appointment-card-content">
                                 <div class="appointment-card-col">
-                                    <?php if($appointment['approval_status'] == 0) { ?>
                                     <img src="graphics/stopwatch.png" alt="">
-                                    <?php } ?>
                                     <div class="appointment-card-col2">
-                                        <?php if($appointment['approval_status'] == 0) { ?>
                                         <span class="span-status">Pending Approval</span>
-                                        <?php } ?>
                                         <span class="span-date"> <?php echo $appointment['date']; ?> </span>
                                     </div>
                                 </div>
@@ -145,36 +238,13 @@
                             </div>
                         </div>
                     </div>
-                    <?php }}} ?>
-
-
-
-                </div>
-            </div>
-        
-            <div class="recent-appointments">
-                <h1 class="section-heading">PENDING APPROVAL</h1>
-                <div class="appointments-collection">
-                    <div class="appointment-card-container service-pending">
-                        <div class="appointment-card">
-                            <div class="mech-appointment-title">
-                                <span class="appointment-title-one">Andrew Robertson</span>
-                                <span class="appointment-title-two">Honda Civic</span>
-                            </div>
-                            <div class="appointment-card-content">
-                                <div class="appointment-card-col">
-                                    <img src="graphics/stopwatch.png" alt="">
-                                    <div class="appointment-card-col2">
-                                        <span class="span-status">15-Feb-2022</span>
-                                        <span class="span-date">08:00 HRS</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-dark btn-sm">DETAILS</button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }} ?>
                     
             </div>
+
+            <?php }} ?>
+
+
         </div>
     </div>
 

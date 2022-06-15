@@ -11,10 +11,6 @@ if(isset($_POST["submit"])) {
 
     //Initializing controller
 
-
-    echo "Status: " . $status . "<br/>";
-    echo "app ID: " . $appointment_id . "<br/>";
-
     $updateAppointment = new updateAppointmentContr($status, $appointment_id);
 
     $updateAppointment->updateAppointment();
