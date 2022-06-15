@@ -83,16 +83,15 @@
                          foreach($appointments as $appointment) { 
                             //create a unique id for each modal, in order to view dynamic
                             $appointment_modal_id = "modal_" . $appointment['appointment_id'];
-
-                                if($appointment['approval_status'] == 0) {
                      
                     ?>
+
                     <!-- Start of Appointment details modal -->
                     <div class="modal fade" id="<?php echo $appointment_modal_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title appointment-modal-title" id="exampleModalLabel">Pending Approval</h4>
+                                    <h4 class="modal-title appointment-modal-title" id="exampleModalLabel">Appointment</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 
@@ -113,20 +112,37 @@
                     </div>
                     <!-- End of Appointment details modal -->
 
-                    <div class="appointment-card-container <?php echo"service-pending"; } ?>">
+                    <?php
+                    // Classes for css styling
+                    $appointment_status = null;
+                    $appointment_class = null;
+                    $appointment_img = null;
+                    if($appointment['approval_status'] == 0){
+                        $appointment_status = "Pending Approval";
+                        $appointment_class = "service-pending";
+                        $appointment_img = "graphics/stopwatch.png";
+                    }else if($appointment['approval_status'] == 1){
+                        $appointment_status = "Service Cancelled";
+                        $appointment_class = "service-cancelled";
+                        $appointment_img = "graphics/cancel.png";
+                    }else if($appointment['approval_status'] == 2){
+                        $appointment_status = "Service Approved";
+                        $appointment_class = "service-approved";
+                        $appointment_img = "graphics/accept.png";
+                    }
+
+                    ?>
+
+                    <div class="appointment-card-container <?php echo $appointment_class; ?>">
                         <div class="appointment-card">
                             <div class="appointment-card-title">
                                 <span> <?php echo $appointment['name']; ?> </span>
                             </div>
                             <div class="appointment-card-content">
                                 <div class="appointment-card-col">
-                                    <?php if($appointment['approval_status'] == 0) { ?>
-                                    <img src="graphics/stopwatch.png" alt="">
-                                    <?php } ?>
+                                    <img src="<?php echo $appointment_img ?>" alt="">
                                     <div class="appointment-card-col2">
-                                        <?php if($appointment['approval_status'] == 0) { ?>
-                                        <span class="span-status">Pending Approval</span>
-                                        <?php } ?>
+                                        <span class="span-status"><?php echo $appointment_status ?></span>
                                         <span class="span-date"> <?php echo $appointment['date']; ?> </span>
                                     </div>
                                 </div>
@@ -134,9 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php }} ?>
-
-
+                    <?php }}?>
 
                 </div>
             </div>

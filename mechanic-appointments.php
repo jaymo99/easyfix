@@ -67,7 +67,22 @@
     <div class="body_container">
         <div class="reduced_body">
             <?php
-                if(sizeof($appointments) < 1){
+                //Check if all the appointments have a status of 1 (cancelled)
+                //Cancelled appointments are not displayed on mechanics side so we display the info message instead
+                $counter = 0;
+                foreach($appointments as $appointment) {
+                    if($appointment['approval_status'] == 1) {
+                        $counter++;
+                    }
+                }
+                if($counter == sizeof($appointments)){
+                    $areAllCancelled = true;
+                }else{
+                    $areAllCancelled = false;
+                }
+
+                //if there are zero appointments returned or all appointments are cancelled
+                if(sizeof($appointments) < 1 || $areAllCancelled == true){
             ?>   
                 <div class="alert alert-info" role="alert" style="margin-top: .8em">
                     <h4 class="alert-heading">You Don't have Appointments!</h4>
