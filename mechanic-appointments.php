@@ -105,14 +105,25 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <!-- hidden forms for passing rejection or acceptance -->
+                                    <form action="includes/updateAppointment.inc.php" method="POST" class="dontDisplay" id="rejectAppointmentForm">
+                                        <input type="hidden" name="status" id="rejectInput" value=1>
+                                        <input type="hidden" name="appointment_id" id="" value=<?php echo $appointment['appointment_id'] ?>>
+                                    </form>
+                                    <form action="includes/updateAppointment.inc.php" method="POST" class="dontDisplay" id="acceptAppointmentForm">
+                                        <input type="hidden" name="status" id="rejectInput" value=2>
+                                        <input type="hidden" name="appointment_id" id="" value=<?php echo $appointment['appointment_id'] ?>>
+                                    </form>
+
+                                    <button type="submit" name="submit" form="rejectAppointmentForm" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+                                    <button type="submit" name="submit" form="acceptAppointmentForm" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- End of Appointment details modal -->
 
-                    <div class="appointment-card-container <?php echo"service-pending"; } ?>">
+                    <div class="appointment-card-container <?php echo"service-pending";  ?>">
                         <div class="appointment-card">
                             <div class="mech-appointment-title">
                                 <span class="appointment-title-one"> <?php echo $appointment['f_name']." ".$appointment['m_name']." ".$appointment['l_name']; ?> </span>
@@ -134,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php }} ?>
+                    <?php }}} ?>
 
 
 

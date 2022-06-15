@@ -6,7 +6,7 @@ session_start();
     if(isset($_POST['hiddenInput']) || isset($_SESSION['mech_id'])) {
 
     if(isset($_POST['hiddenInput'])) {
-        $_SESSION['mech_id'] = $_POST['hiddenInput'];
+        $mech_id = $_POST['hiddenInput'];
     }
     
     if(isset($_SESSION['user_id'])) {
@@ -18,7 +18,7 @@ session_start();
 
     //Initializing the controller
     $content = new ContentContr();
-    $mechanic = $content->displayMechanic($_SESSION['mech_id']);
+    $mechanic = $content->displayMechanic($mech_id);
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +79,17 @@ session_start();
     
     <div class="body_container">
         <div class="reduced_body">
-        
+            
+            <!-- displays error when mechanic tries to book appointment -->
+            <?php if(isset($_SESSION['appointment-error'])) { ?>
+                <div class="alert alert-danger appointment-error" role="alert">
+                    <strong>Attention! </strong>
+                    <?php echo $_SESSION['appointment-error'];
+                        unset($_SESSION['appointment-error']);
+                    ?>
+                </div>
+            <?php } ?>
+
             <div class="mech-banner">
                 <img src="graphics/mechanic-banner.jpg" alt="">
             </div>
