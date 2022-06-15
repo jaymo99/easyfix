@@ -95,8 +95,8 @@ session_start();
             </div>
             <div class="working-hours-flex">
                 <div class="mech-content">
-                    <h1> <?php echo $mechanic[0]['name'] ?> </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam urna quis ipsum varius ultricies. Vivamus diam turpis, varius sit amet vulputate sit amet, pretium id libero. Fusce dignissim leo ligula, vel lacinia enim posuere eget. Mauris gravida neque in lacus auctor congue. Fusce scelerisque sit amet dui in convallis. </p>
+                    <h1> <?php echo $mechanic[0]['name']; ?> </h1>
+                    <p>Welcome to <?php echo $mechanic[0]['name']; ?>. We're delighted to offer our services to you. In order to get started, you need to sign up for a free account first, then you can book appointments. If you are already signed up, we have provided a form at the bottom of this page, you can schedule an appointment with us. We have also provided our contact details, you can give us a call.</p>
                     <h2>Location</h2>
                     <p> <?php echo $mechanic[0]['description'] ?> </p>
                     <button class="btn btn-sm btn-secondary">SEE IN THE MAP</button>
