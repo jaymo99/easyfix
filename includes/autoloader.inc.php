@@ -13,7 +13,7 @@ function myAutoloader($className) {
         include "../classes/" .$className. ".classes.php";
     }
 
-    $path = BASEURL . '/classes';
+    $path = BASEURL . '/classes/';
     $extension = '.classes.php';
     $fullPath = $path . $className . $extension;
 
