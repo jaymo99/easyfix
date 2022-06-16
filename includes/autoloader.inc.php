@@ -17,5 +17,5 @@ function myAutoloader($className) {
     $extension = '.classes.php';
     $fullPath = $path . $className . $extension;
 
-    require_once __DIR__ . $path . strtr($classname, "\\", "/") . $extension;
+    require_once __DIR__ . $path . strtr($className, "\\", "/") . $extension;
 }
