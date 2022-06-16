@@ -1,11 +1,11 @@
 <?php
-    session_start();
-    //Including relevant classes
-    include "includes/autoloader.inc.php";
+    // session_start();
+    // //Including relevant classes
+    // include "includes/autoloader.inc.php";
 
-    //Initializing the controller
-    $content = new ContentContr();
-    $mechanics = $content->displayAllMechanics();
+    // //Initializing the controller
+    // $content = new ContentContr();
+    // $mechanics = $content->displayAllMechanics();
 ?>
 
 <!DOCTYPE html>
