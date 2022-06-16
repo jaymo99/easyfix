@@ -10,4 +10,8 @@ function myAutoloader($className) {
     if(file_exists("../classes/" .$className. ".classes.php")){
         include "../classes/" .$className. ".classes.php";
     }
+
+    if(file_exists("app/classes/" .$className. ".classes.php")){
+        include "app/classes/" .$className. ".classes.php";
+    }
 }
