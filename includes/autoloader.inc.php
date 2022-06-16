@@ -1,7 +1,5 @@
 <?php 
 
-define('BASEURL', $_SERVER['DOCUMENT_ROOT']);
-
 spl_autoload_register('myAutoloader');
 
 function myAutoloader($className) {
