@@ -1,6 +1,6 @@
 <?php
 
-class updateAppointmentContr extends Appointment {
+class UpdateAppointmentContr extends Appointment {
 
     private $status;
     private $appointment_id;
