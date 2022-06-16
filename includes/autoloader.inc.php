@@ -5,12 +5,12 @@ define('BASEURL', $_SERVER['DOCUMENT_ROOT']);
 spl_autoload_register('myAutoloader');
 
 function myAutoloader($className) {
-    if(file_exists(__DIR__ . "classes/" . $className . ".classes.php")){
-        require_once __DIR__ . "classes/" . $className . ".classes.php";
+    if(file_exists(__DIR__ . "classes/" . strtr($className, "\\", "/") . ".classes.php")){
+        require_once __DIR__ . "classes/" . strtr($className, "\\", "/") . ".classes.php";
     }
 
-    if(file_exists(__DIR__ . "../classes/" .$className. ".classes.php")){
-        require_once __DIR__ . "../classes/" .$className. ".classes.php";
+    if(file_exists(__DIR__ . "../classes/" .strtr($className, "\\", "/"). ".classes.php")){
+        require_once __DIR__ . "../classes/" .strtr($className, "\\", "/"). ".classes.php";
     }
 
     // $path = '/classes/';
