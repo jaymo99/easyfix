@@ -376,7 +376,7 @@ p {
 
 .appointment-title-two{
     font-size: .75rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .appointment-card-content {
@@ -413,7 +413,7 @@ p {
 }
 
 .appointment-card-content .span-date {
-    font-weight: 300;
+    font-weight: 400;
     font-size: .7rem;
     letter-spacing: .1em;
     color: #000000;
@@ -441,7 +441,7 @@ p {
 .appointment-modal-content span{
     display: block;
     margin-bottom: 1.5em;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     letter-spacing: 0.095em;
     text-transform: capitalize;

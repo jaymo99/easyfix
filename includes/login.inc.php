@@ -18,7 +18,11 @@ if(isset($_POST["submit"])) {
         $signup->loginMechanic();
     }
 
-    header("location: ../index.php?error=none");
+    if($user_category == "client"){
+        header("location: ../index.php?error=none");
+    }elseif($user_category == "mechanic"){
+        header("location: ../mechanic-appointments.php?error=none");
+    }
     
 
 }
