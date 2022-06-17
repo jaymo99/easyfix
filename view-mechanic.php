@@ -7,6 +7,11 @@ session_start();
 
     if(isset($_POST['hiddenInput'])) {
         $mech_id = $_POST['hiddenInput'];
+        $_SESSION['mech_id'] = $_POST['hiddenInput'];
+    }
+
+    if(isset($_SESSION['mech_id'])) {
+        $mech_id = $_SESSION['mech_id'];
     }
     
     if(isset($_SESSION['user_id'])) {
@@ -19,6 +24,7 @@ session_start();
     //Initializing the controller
     $content = new ContentContr();
     $mechanic = $content->displayMechanic($mech_id);
+    $form_action = "includes/appointment.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +152,26 @@ session_start();
             <div class="book-appointment-container">
                 <div class="book-appointment my-responsive-form">
                     <h2 class="section-heading heading-center">BOOK APPOINTMENT</h2>
-                    <form action="includes/appointment.inc.php" method="POST">
+
+                    <?php if(isset($_SESSION['user_id'])) { 
+                        if($_SESSION['user_role'] == "mechanic"){ 
+                            $form_action = "";
+                        ?>
+                        <div class="alert alert-info" role="alert">
+                            <strong>Attention! </strong>
+                            Mechanics cannot book Appointment
+                        </div>
+                        <?php } ?>
+                    <?php } else{ 
+                            $form_action = "";
+                        ?>
+                        <div class="alert alert-info" role="alert">
+                            <strong>Attention! </strong>
+                            You have to login first!
+                        </div>
+                    <?php } ?>
+
+                    <form action="<?php echo $form_action; ?>" method="POST">
                         <div class="appointment-form-row">
                             <label for="appointment_date" class="my-placeholder">Appointment Date:</label>
                             <input type="date" name="date" id="appointment_date" class="form-control" required>
@@ -170,9 +195,9 @@ session_start();
 
                         <!-- hidden input for automatic client and mechanic id -->
                         <?php if(isset($client_id)) { ?>
-                        <input type="hidden" name="client_id" id="" value="<?php echo $client_id ; }?>">
+                        <input type="hidden" name="client_id" id="" value="<?php echo $client_id;?>"> <?php } ?>
                         <?php if(isset($mech_id)) { ?>
-                        <input type="hidden" name="mechanic_id" id="" value="<?php echo $mech_id ; }?>">
+                        <input type="hidden" name="mechanic_id" id="" value="<?php echo $mech_id;?>"> <?php } ?>
         
                         <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
                     </form>
@@ -187,7 +212,8 @@ session_start();
 </html>
 
 <?php 
-    } else {
+    } 
+    else {
         $_SESSION['form-error'] = "You need to log in first!";
         header("location: login.php?error=fromViewMechanic");
     }
