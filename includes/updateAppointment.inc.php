@@ -11,7 +11,7 @@ if(isset($_POST["submit"])) {
 
     //Initializing controller
 
-    $updateAppointment = new updateAppointmentContr($status, $appointment_id);
+    $updateAppointment = new UpdateAppointmentContr($status, $appointment_id);
 
     $updateAppointment->updateAppointment();
 
