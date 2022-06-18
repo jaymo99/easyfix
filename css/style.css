@@ -7,7 +7,13 @@
 
 :root{
     font-size: 14px;
-    --primary-color: #EFEFEF;
+    --primary-color: #E2B80A;
+    --secondary-color: #EFEFEF;
+}
+
+body {
+    /* background-color: #4682b433; */
+    background-color: #DAE6F0;
 }
 
 /* because of bootstrap overriding */
@@ -107,7 +113,7 @@ p {
 .dropdown-menu a {
     text-transform: uppercase;
     margin-bottom: .5em;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .dropdown.active > .mybtn-nav + .dropdown-menu {
@@ -125,7 +131,7 @@ p {
     height: 70vh;
     border-radius: 10px;
     margin: .5em 0;
-    background-color: yellow;
+    background-color: steelblue;
 }
 
 .index_page_cards span{
@@ -159,7 +165,7 @@ p {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     border: 1px solid #f2f8f9;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 
 }
 
