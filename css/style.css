@@ -12,8 +12,8 @@
 }
 
 body {
-    /* background-color: #4682b433; */
-    background-color: #DAE6F0;
+    background-color: #4682b433;
+    /* background-color: #DAE6F0; */
 }
 
 /* because of bootstrap overriding */
