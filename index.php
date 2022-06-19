@@ -31,8 +31,14 @@
             <div class="my-logo">
                 <a href=""><span>EASYFIX</span></a>
             </div>
-            <ul>
-                <?php if(isset($_SESSION['user_id'])) { ?>
+            <?php if(isset($_SESSION['user_id'])) { ?>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+            <ul class="my-menu">
 
                     <div class="user-loggedIn">
                         <li class="nav-list-item"> <a href="" class="active-link">Home</a> </li>
@@ -45,7 +51,7 @@
                             </li>
                         <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
-                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
+                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav btn-hamburger">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
                         </li>
                     </div>

@@ -38,6 +38,33 @@ p {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
 }
 
+.hamburger {
+    cursor: pointer;
+    align-self: center;
+}
+
+.hamburger.myactive .bar:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.myactive .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.myactive .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
 .my-navbar{
     display: flex;
     justify-content: space-between;
@@ -53,10 +80,26 @@ p {
 }
 
 
-.my-navbar ul{
-    display: none;
+.my-menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    top: 36px;
+    gap: 0;
     list-style: none;
-    margin: 0;
+    background-color: var(--primary-color);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.my-menu.myactive{
+    left: 0;
+}
+
+.nav-list-item {
+    margin: 20px 0;
 }
 
 .nav-list-item a{
@@ -65,7 +108,7 @@ p {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    color: black
+    color: black;
 }
 
 .nav-list-item a:hover, .active-link {
@@ -73,21 +116,13 @@ p {
     border-bottom: 4px solid black;
 }
 
-.nav-list-item + .nav-list-item {
-    margin-left: 1em;
-}
-
-.logout-btn {
-    margin-left: 1em;
-}
-
-.user-loggedIn {
+.user-loggedOut{
     display: flex;
     align-items: center;
 }
 
-.my-user-profile {
-    width: 37px;
+.btn-hamburger {
+    margin-bottom: 20px;
 }
 
 .dropdown {
@@ -473,7 +508,38 @@ p {
     :root{
         font-size: 16px;    }
 
-    .my-navbar ul, .user-loggedOut{
+    .my-menu{
+        align-items: flex-end;
+        align-self: center;
+        margin: 0;
+        padding: 0;
+
+        position: relative;
+        left:0 ;
+        top: 0;
+    }
+
+    .nav-list-item, .mybtn-nav {
+        margin: 0;
+    }
+
+    .btn-hamburger {
+        margin-bottom: 0;
+    }
+
+    .nav-list-item + .nav-list-item {
+        margin-left: 1em;
+    }
+    
+    .logout-btn {
+        margin-left: 1em;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .user-loggedIn{
         display: flex;
         align-items: center;
     }
