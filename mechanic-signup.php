@@ -25,15 +25,17 @@
             <div class="my-logo">
                 <a href="index.php"><span>EASYFIX</span></a>
             </div>
-            <ul>
-                <div>
-                    <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
-                </div>
-                <div class="dropdown" data-dropdown>
-                    <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
-                    <div class="dropdown-menu">
-                        <a class="btn" href="client-signup.php">Client</a>
-                        <a class="btn" href="">Mechanic</a>
+            <ul class="flex-container no-margin">
+                <div class="user-loggedOut">
+                    <div>
+                        <a href="login.php" class="btn btn-sm btn-secondary mybtn-nav">LOG IN</a>
+                    </div>
+                    <div class="dropdown" data-dropdown>
+                        <button class="btn btn-sm btn-secondary mybtn-nav" data-dropdown-button>SIGN UP</button>
+                        <div class="dropdown-menu">
+                            <a class="btn" href="client-signup.php">Client</a>
+                            <a class="btn" href="">Mechanic</a>
+                        </div>
                     </div>
                 </div>
             </ul>

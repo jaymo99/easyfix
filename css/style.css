@@ -30,6 +30,14 @@ p {
     border: 0;
 }
 
+.no-margin {
+    margin: 0;
+}
+
+.flex-container{
+    display: flex;
+}
+
 .my-navbar-container{
     position: sticky;
     top: 0;
