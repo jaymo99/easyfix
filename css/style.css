@@ -190,6 +190,7 @@ p {
 .mechanic_cards_container {
     display: flex;
     flex-wrap:  wrap;
+    gap: .5em;
     justify-content: space-between;
     padding-top: .5em;
     padding-bottom: 25em;
@@ -203,7 +204,7 @@ p {
     display: inline-block;
     position: relative;
     max-width: 272px;
-    margin: .5em;
+    margin: 0 auto;
     padding: .5em .5em 2em .5em;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
     border-radius: 10px;
