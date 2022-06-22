@@ -17,7 +17,7 @@ if(isset($_POST["submit"])) {
 
     $signup->signupClient();
 
-    $_SESSION['form-success'] = "You can now proceed to login";
+    $_SESSION['form-success'] = "You can Login here as a client";
     header("location: ../login.php?error=none");
 
 }
