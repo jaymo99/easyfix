@@ -24,6 +24,10 @@
     <!--  -->
     <script src="JS/script.js" defer></script>
     <script src="JS/hamburger.js" defer></script>
+    <script src="JS/map.js" defer></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDteNsv96-8loTY5QU0sjFFjQJGVnJQXPo&callback=initMap">
+    </script>
 </head>
 <body>
     <div class="my-navbar-container">
@@ -77,7 +81,7 @@
     </div>
     <div class="body_container">
         <div class="reduced_body">
-            <div class="map"> </div>
+            <div id="map"> </div>
             <div class="index_page_cards">
                 <span>Available Mechanics</span>
                 <div class="mechanic_cards_container">
