@@ -18,7 +18,14 @@
     <title>My appointments</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!--  -->
+    <script src="JS/script.js" defer></script>
+    <script src="JS/hamburger.js" defer></script>
+
 </head>
 <body>
     <div class="my-navbar-container">
@@ -27,9 +34,14 @@
             <div class="my-logo">
                 <a href="index.php"><span>EASYFIX</span></a>
             </div>
-            <ul>
-                <?php if(isset($_SESSION['user_id'])) { ?>
-
+            <?php if(isset($_SESSION['user_id'])) { ?>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
+                <ul class="my-menu">
                     <div class="user-loggedIn">
                         <li class="nav-list-item"> <a href="index.php">Home</a> </li>
                         <li class="nav-list-item">
@@ -41,7 +53,7 @@
                             </li>
                         <li class="nav-list-item"> <a href="">About</a> </li>
                         <li class="logout-btn">
-                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav">LOG OUT</a>
+                            <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav btn-hamburger">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
                         </li>
                     </div>

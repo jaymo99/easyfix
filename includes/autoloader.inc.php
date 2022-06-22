@@ -11,7 +11,4 @@ function myAutoloader($className) {
         include "../classes/" .$className. ".classes.php";
     }
 
-    if(file_exists("app/classes/" .$className. ".classes.php")){
-        include "app/classes/" .$className. ".classes.php";
-    }
 }

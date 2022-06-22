@@ -20,6 +20,6 @@ if(isset($_POST["submit"])){
     $signup->signupMechanic();
     
     //Going back to front page
-    $_SESSION['form-success'] = "You can now proceed to login"; 
+    $_SESSION['form-success'] = "You can Login here as a mechanic"; 
     header("location: ../login.php?error=mechRegisteredSuccessfully");
 }

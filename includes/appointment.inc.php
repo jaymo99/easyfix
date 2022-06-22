@@ -14,6 +14,10 @@ if(isset($_POST["submit"])) {
     include "autoloader.inc.php";
 
     //Initializing controller
+    if($client_id == null){
+        header("location: ../view-mechanic.php?error=noClientId");
+        exit();
+    }
 
     $appointment = new AppointmentContr($brand, $model, $time, $date, $description, $client_id, $mechanic_id);
 
