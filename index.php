@@ -54,7 +54,9 @@
                                 <a href="mechanic-appointments.php">Appointments</a>
                             <?php } ?>
                             </li>
-                        <li class="nav-list-item"> <a href="">About</a> </li>
+                        <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "mechanic") { ?>
+                        <li class="nav-list-item"> <a href="mechanic-settings.php">Settings</a> </li>
+                        <?php } ?>
                         <li class="logout-btn">
                             <a href="includes/logout.inc.php" class="btn btn-sm btn-secondary mybtn-nav btn-hamburger">LOG OUT</a>
                             <!-- <img src="graphics/user.png" class="my-user-profile" alt="user-profile"> -->
