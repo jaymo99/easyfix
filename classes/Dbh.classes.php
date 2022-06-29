@@ -4,10 +4,10 @@ class Dbh{
 
     protected function connect(){
       try {
-        //localhost database connection
+        //localhost database connection (phpMyAdmin -> 3308)
         // $username = "root";
         // $password = "";
-        // $dbh = new PDO('mysql:host=localhost;dbname=easyfix', $username, $password);
+        // $dbh = new PDO('mysql:host=localhost:3308;dbname=easyfix', $username, $password);
         // return $dbh;
 
         //remote database connection
