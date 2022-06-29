@@ -77,6 +77,9 @@
     <div class="body_container">
         <div class="reduced_body">
             <div id="map"></div>
+
+            <button class="btn btn-dark" style="margin: 2rem auto;">SET LOCATION</button>
+            <div id="current"></div>
         </div>
     </div>
 

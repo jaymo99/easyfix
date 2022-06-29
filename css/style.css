@@ -175,6 +175,7 @@ p {
     border-radius: 10px;
     margin: .5em 0;
     background-color: steelblue;
+    border: 2px solid steelblue;
 }
 
 .index_page_cards span{
