@@ -78,7 +78,7 @@
         <div class="reduced_body">
             <div id="map"></div>
 
-            <button class="btn btn-dark" style="margin: 2rem auto;">SET LOCATION</button>
+            <button onclick="saveLocation()" class="btn btn-dark" style="margin: 2rem auto;">SET LOCATION</button>
             <div id="current"></div>
         </div>
     </div>

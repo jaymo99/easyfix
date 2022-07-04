@@ -72,4 +72,24 @@ class Signup extends Dbh{
         return $result;
     }
 
+
+    // MECHANIC SETTINGS
+    protected function setMechanicLocation($lat, $lng, $mech_id) {
+        $stmt = $this->connect()->prepare("
+            UPDATE mechanic
+            SET latitude = ?, longitude = ?
+            WHERE mech_id = ?;
+        ");
+
+
+        if(!$stmt->execute(array($lat, $lng, $mech_id))) {
+            $stmt = null;
+            $_SESSION['form-error'] = "Critical error, contact support";
+            header("location: ../mechanic-signup.php?error=stmtfailedLOCATION");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
 }
