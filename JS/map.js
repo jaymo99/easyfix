@@ -9,7 +9,7 @@ function initMap() {
     });
     // The custom marker
     const image = "./graphics/mechanic-marker.png";
-
+    // One info window to be used by all the markers
     let infowindow = new google.maps.InfoWindow();
 
     // Fetch all mechanics locations
@@ -29,14 +29,19 @@ function initMap() {
           animation: google.maps.Animation.BOUNCE,
         });
 
-        let content = "Thank God!";
+        let content = 
+          "<div>" +
+          '<p style="font-weight: 900; margin-bottom: .5rem;">' + element.name + '</p>' +
+          '<p>Mechanic</p>'+
+          "</div>"
+        ;
 
-        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){
+        google.maps.event.addListener(marker, 'click', (function(marker, content){
           return function() {
             infowindow.setContent(content);
             infowindow.open(map, marker);
           };
-        })(marker, content, infowindow));
+        })(marker, content));
         
       });
     }).catch((error) => {
@@ -76,7 +81,7 @@ function settingsMap() {
 
   //InfoWindow set on the marker
   const infowindow = new google.maps.InfoWindow({
-    content: "<strong>Drag to set location!</strong>",
+    content: "<span style='font-weight: bold;'>Drag to set your garage's location!</span>",
   });
 
   infowindow.open({

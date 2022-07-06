@@ -68,7 +68,7 @@ class Content extends Dbh {
     }
 
     protected function getMechanicLocations(){
-        $sql = "SELECT longitude, latitude FROM mechanic;";
+        $sql = "SELECT name, longitude, latitude FROM mechanic;";
 
         $stmt = $this->connect()->prepare($sql);
 
