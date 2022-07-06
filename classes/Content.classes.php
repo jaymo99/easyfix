@@ -66,4 +66,19 @@ class Content extends Dbh {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
     }
+
+    protected function getMechanicLocations(){
+        $sql = "SELECT longitude, latitude FROM mechanic;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        if(!$stmt->execute()) {
+            $stmt = null;
+            header("location: ../index.php?error=stmtfailedFetch");
+            exit();
+        }
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
 }

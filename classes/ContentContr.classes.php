@@ -26,6 +26,12 @@ class ContentContr extends Content {
            
         return $myVar;
     }
+
+    public function displayMechanicLocations(){
+        $myVar = $this->getMechanicLocations();
+
+        return $myVar;
+    }
     
     
 }

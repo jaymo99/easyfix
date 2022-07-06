@@ -4,19 +4,46 @@ function initMap() {
     const rongai = { lat: -1.3942330517263632, lng: 36.764185816517866 };
     // The map, centered at maasai mall rongai
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
+      zoom: 14,
       center: rongai,
     });
-    // The marker, positioned at maasai mall rongai
+    // The custom marker
     const image = "./graphics/mechanic-marker.png";
 
-    const marker = new google.maps.Marker({
-      position: rongai,
-      map: map,
-      icon: image,
-      animation: google.maps.Animation.BOUNCE,
-    });
+    let infowindow = new google.maps.InfoWindow();
 
+    // Fetch all mechanics locations
+    fetch('./includes/fetch-mechanic-locations.inc.php')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success: ', data);
+      //create a marker for each location in the returned array
+      data.forEach(element => {
+        // Convert element.latitude to number because it was received as string
+        let mechanicLocation = {lat: Number(element.latitude), lng: Number(element.longitude)};
+
+        let marker = new google.maps.Marker({
+          position: mechanicLocation,
+          map: map,
+          icon: image,
+          animation: google.maps.Animation.BOUNCE,
+        });
+
+        let content = "Thank God!";
+
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){
+          return function() {
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));
+        
+      });
+    }).catch((error) => {
+      console.error('Error: ', error);
+    });
+    ///////////////////////////////////////
+    
 }
 
 window.initMap = initMap;
@@ -63,7 +90,7 @@ function settingsMap() {
     mechanicLocation.lat = evt.latLng.lat();
     mechanicLocation.lng = evt.latLng.lng();
 
-    document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + mechanicLocation.lat + ' Current Lng: ' + mechanicLocation.lng + '</p>';
+    document.getElementById('current').innerHTML = '<p>Marker dropped</p>';
     //center the map on the marker
     map.panTo(marker.position);
   });
@@ -76,7 +103,10 @@ function settingsMap() {
 
 }
 
-function saveLocation(){
+function saveLocation(mech_id){
+  // The mech_id of the mechanic whose location is being set
+  mechanicLocation.mech_id = mech_id;
+  
   myJson = JSON.stringify(mechanicLocation);
 
   fetch('./includes/set-maplocation.inc.php', {
@@ -89,6 +119,8 @@ function saveLocation(){
   .then((response) => response.text())
   .then((data) => {
     console.log('Success: ', data);
+    document.getElementById('current').innerHTML = '<p>Location Saved!</p>';
+    alert("Location saved!");
   }).catch((error) => {
     console.error('Error: ', error);
   });

@@ -78,8 +78,10 @@
         <div class="reduced_body">
             <div id="map"></div>
 
-            <button onclick="saveLocation()" class="btn btn-dark" style="margin: 2rem auto;">SET LOCATION</button>
-            <div id="current"></div>
+            <div class="my-flex-container">
+                <button onclick="saveLocation(<?php echo $_SESSION['user_id'] ?>)" class="btn btn-dark" style="margin: .5rem auto;">SAVE LOCATION</button>
+                <div id="current"></div>
+            </div>
         </div>
     </div>
 

@@ -7,7 +7,7 @@ $data = json_decode($json);
 
 include "autoloader.inc.php";
     
-$saveLocation = new MechLocationContr($data->lat, $data->lng, 1);
+$saveLocation = new MechLocationContr($data->lat, $data->lng, $data->mech_id);
 
 //Running error handlers and user signup
 $saveLocation->updateMechanicLocation();
