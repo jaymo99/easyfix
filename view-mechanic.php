@@ -24,6 +24,7 @@ session_start();
     //Initializing the controller
     $content = new ContentContr();
     $mechanic = $content->displayMechanic($mech_id);
+    $gallery = $content->displayMechanicGallery($mech_id);
     $form_action = "includes/appointment.inc.php";
 ?>
 
@@ -167,20 +168,50 @@ session_start();
                         </div>
                 </div>
             </div>
-
+            
+            <!-- IF mechanic has gallery images, display them here -->
+            <!-- The webpage has 3 columns for displaying gallery, we need to divide the images into three separate arrays, then display each array in its own column -->
+            <?php if($gallery > 0){ 
+                $counter = 1;
+                $column1 = array();
+                $column2 = array();
+                $column3 = array();
+            ?>
             <div class="mechanic-gallery-container">
+                <?php 
+                foreach ($gallery as $image) {
+                    if($counter == 1){
+                        array_push($column1,$image['image_path']);
+                        $counter++;
+                    }
+                    elseif($counter == 2){
+                        array_push($column2,$image['image_path']);
+                        $counter++;
+                    }
+                    elseif($counter == 3){
+                        array_push($column3,$image['image_path']);
+                        $counter = 1;
+                    }
+                } 
+
+                ?>
                 <div class="mechanic-gallery-column">
-                    <img src="images/one.jpg" alt="">
-                    <img src="images/two.jpg" alt="">
+                    <?php foreach ($column1 as $image) {?>
+                    <img src="images/<?php echo $image ?>" alt="">
+                    <?php } ?>
                 </div>
                 <div class="mechanic-gallery-column">
-                    <img src="images/three.jpg" alt="">
-                    <img src="images/four.jpg" alt="">
+                    <?php foreach ($column2 as $image) {?>
+                    <img src="images/<?php echo $image ?>" alt="">
+                    <?php } ?>
                 </div>
                 <div class="mechanic-gallery-column">
-                    <img src="images/five.jpg" alt="">
+                    <?php foreach ($column3 as $image) {?>
+                    <img src="images/<?php echo $image ?>" alt="">
+                    <?php } ?>
                 </div>
             </div>
+            <?php } ?>
 
             <div class="book-appointment-container">
                 <div class="book-appointment my-responsive-form">

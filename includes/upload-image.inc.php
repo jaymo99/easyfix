@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-// if($_FILES["file"]["error"] != 4) {
-//     //stands for any kind of errors happen during the uploading
-//     $_SESSION['form-error'] = "No file selected for upload";
-//     header("location: ../mechanic-settings-gallery.php?error=noFileSelected");
-//     exit();
-// } 
-
 $target_dir = "../images/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -66,6 +59,7 @@ if ($uploadOk == 0) {
     //Initializing controller
     $imagePath = basename( $_FILES["fileToUpload"]["name"]);
     $mech_id = $_SESSION['user_id'];
+    
     $gallery = new GalleryContr($imagePath, $mech_id);
     $gallery->uploadImage();
 

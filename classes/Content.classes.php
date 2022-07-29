@@ -31,6 +31,21 @@ class Content extends Dbh {
         return $results;
     }
 
+    protected function getMechanicGallery($mech_id) {
+        $sql = "SELECT * FROM mechanic_gallery WHERE mech_id=?;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        if(!$stmt->execute(array($mech_id))) {
+            $stmt = null;
+            header("location: ../index.php?error=stmtfailedGalleryContent");
+            exit();
+        }
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     protected function getClientAppointments($client_id) {
         $sql = "SELECT mechanic.name, mechanic.town, appointment.appointment_id, appointment.approval_status, appointment.date, appointment.problem_description
         FROM appointment

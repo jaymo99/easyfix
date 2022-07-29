@@ -15,6 +15,12 @@ class ContentContr extends Content {
         return $myVar;
     }
 
+    public function displayMechanicGallery($mech_id) {
+        $myVar = $this->getMechanicGallery($mech_id);
+           
+        return $myVar;
+    }
+
     public function displayClientAppointments($client_id) {
         $myVar = $this->getClientAppointments($client_id);
            
