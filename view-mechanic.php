@@ -167,6 +167,21 @@ session_start();
                         </div>
                 </div>
             </div>
+
+            <div class="mechanic-gallery-container">
+                <div class="mechanic-gallery-column">
+                    <img src="images/one.jpg" alt="">
+                    <img src="images/two.jpg" alt="">
+                </div>
+                <div class="mechanic-gallery-column">
+                    <img src="images/three.jpg" alt="">
+                    <img src="images/four.jpg" alt="">
+                </div>
+                <div class="mechanic-gallery-column">
+                    <img src="images/five.jpg" alt="">
+                </div>
+            </div>
+
             <div class="book-appointment-container">
                 <div class="book-appointment my-responsive-form">
                     <h2 class="section-heading heading-center">BOOK APPOINTMENT</h2>

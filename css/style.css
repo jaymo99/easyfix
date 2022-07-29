@@ -119,7 +119,7 @@ p {
     color: black;
 }
 
-.nav-list-item a:hover, .active-link {
+.nav-list-item a:hover, .active-link, .sidebar-item:hover {
     background-color: white;
     border-bottom: 4px solid black;
 }
@@ -511,7 +511,41 @@ p {
     margin-top: .8em;
 }
 
+.mechanic-gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
 
+.mechanic-gallery-column {
+    flex: 33.33%;
+    max-width: 33.33%;
+    padding: 0 4px;
+}
+
+.mechanic-gallery-column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.sidebar-item {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    padding-left: 2rem;
+    margin: .5rem 0;
+}
+
+.sidebar-link {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+.sidebar-icon {
+    width: 20px;
+}
 
 @media only screen and (min-width: 600px){
 
@@ -579,6 +613,11 @@ p {
 
     .appointments-collection {
         justify-content: flex-start;
+    }
+
+    .mechanic-settings-options {
+        display: flex;
+        justify-content: space-between;
     }
 
 }
