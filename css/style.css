@@ -547,6 +547,15 @@ p {
     width: 20px;
 }
 
+.mechanic-settings-form {
+    margin-top: .8rem;
+}
+
+#upload-image-table th, #upload-image-table td{
+    padding: .5rem;
+}
+
+
 @media only screen and (min-width: 600px){
 
     :root{
