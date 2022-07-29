@@ -58,6 +58,9 @@ window.initMap = initMap;
 // object for saving the location
 let mechanicLocation = {};
 
+let currentLocation = {lat: "", lng: ""};
+let singleGarageLocation = { lat: '', lng: ''};
+
 function settingsMap() {
   // The location of Maasai mall rongai
   const maasaiMall = { lat: -1.3942330517263632, lng: 36.764185816517866 };
@@ -105,6 +108,69 @@ function settingsMap() {
     infowindow.close();
     document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
   });
+
+}
+
+let directionsService;
+let directionsRenderer;
+
+function initSingleGarageMap() {
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  
+  // fetch single mechanic location
+  fetch('./includes/fetch-single-mechanic-location.inc.php')
+  .then((response) => response.json())
+  .then((data) => {
+      singleGarageLocation.lat = Number(data[0]['latitude']);
+      singleGarageLocation.lng = Number(data[0]['longitude']);
+      
+      // The map, centered at single Garage location
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: singleGarageLocation,
+      });
+      directionsRenderer.setMap(map);
+    
+      //Location marker
+      const image = "./graphics/mechanic-marker.png";
+    
+      const marker = new google.maps.Marker({
+        position: singleGarageLocation,
+        map: map,
+        icon: image,
+        animation: google.maps.Animation.BOUNCE,
+      });
+    
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          currentLocation.lat = position.coords.latitude;
+          currentLocation.lng = position.coords.longitude;
+    
+          console.log(currentLocation);
+        }, function(){}, {enableHighAccuracy: true})
+      }
+  }).catch((error) => {
+    console.error('Error: ', error);
+  });
+  /////////////////////////////////////////
+
+
+}
+
+function getDirections() {
+  
+  $('html,body').scrollTop(0);
+
+  directionsService.route({
+      origin: currentLocation,
+      destination: singleGarageLocation,
+      travelMode: google.maps.TravelMode.DRIVING,
+    })
+    .then((response) => {
+      directionsRenderer.setDirections(response);
+    })
+    .catch((e) => window.alert("Directions request failed due to "));
 
 }
 

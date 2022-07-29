@@ -41,8 +41,13 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--  -->
+    <script src="JS/jquery-3.6.0.min.js" defer></script>
+    <script src="JS/map.js" defer></script>
     <script src="JS/script.js" defer></script>
     <script src="JS/hamburger.js" defer></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDteNsv96-8loTY5QU0sjFFjQJGVnJQXPo&callback=initSingleGarageMap">
+    </script>
 </head>
 <body>
     <div class="my-navbar-container">
@@ -110,16 +115,15 @@ session_start();
                 </div>
             <?php } ?>
 
-            <div class="mech-banner">
-                <img src="graphics/mechanic-banner.jpg" alt="">
-            </div>
+            <div id="map"></div>
+
             <div class="working-hours-flex">
                 <div class="mech-content">
                     <h1> <?php echo $mechanic[0]['name']; ?> </h1>
                     <p>Welcome to <?php echo $mechanic[0]['name']; ?>. We're delighted to offer our services to you. In order to get started, you need to sign up for a free account first, then you can book appointments. If you are already signed up, we have provided a form at the bottom of this page, you can schedule an appointment with us. We have also provided our contact details, you can give us a call.</p>
                     <h2>Location</h2>
                     <p> <?php echo $mechanic[0]['description'] ?> </p>
-                    <button class="btn btn-sm btn-secondary">SEE IN THE MAP</button>
+                    <button class="btn btn-sm btn-secondary" onclick="getDirections()">SHOW DIRECTIONS</button>
                     <h2>Contact</h2>
                     <div class="view-mech-contact">
                         <img src="graphics/telephone-call.png" alt="">
