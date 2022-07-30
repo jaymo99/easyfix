@@ -1,5 +1,13 @@
 <?php
     session_start();
+
+    //Including relevant classes
+    include "includes/autoloader.inc.php";
+
+    //Initializing the controller
+    $mech_id = $_SESSION['user_id'];
+    $content = new ContentContr();
+    $gallery = $content->displayMechanicGallery($mech_id);
 ?>
 
 <!DOCTYPE html>
@@ -126,6 +134,14 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             <?php } ?>
+
+                            <?php if(isset($_SESSION['form-warning'])) { ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="display: inline-block">
+                                <strong>Attention! </strong>
+                                <?php echo $_SESSION['form-warning']; unset($_SESSION['form-warning']); ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <?php } ?>
                         </td>
                     </tr>
                     <tr>
@@ -137,6 +153,69 @@
                 </table>
                 
             </form>
+            
+            <?php if($gallery > 0) { 
+                $counter = 1;
+            ?>
+            <table class="table" style="background: white;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                <?php foreach($gallery as $image) {
+                    $image_modal_id = "modal_" . $image['image_id'];
+                    $hidden_form_id = "form_" . $image['image_id'];
+                ?>
+                <tr>
+                    <td><?php echo $counter; $counter++; ?></td>
+                    <td>
+                        <img src="images/<?php echo $image['image_path'];?>" alt="" style="width: 100px;">
+                    </td>
+                    <td><?php echo $image['image_path']; ?></td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#<?php echo $image_modal_id;?>">DELETE</button>
+
+                        <!-- Modal (unique modal for each image)-->
+                        <div class="modal fade" id="<?php echo $image_modal_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title appointment-modal-title" id="exampleModalLabel">Confirm Action</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    
+                                    <div class="modal-body"> 
+                                        <div class="">
+                                            Are you sure you want to delete "<?php echo $image['image_path']; ?>" of image id "<?php echo $image['image_id']; ?>"?
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <!-- hidden form for passing image information for delete -->
+                                        <form action="includes/deleteImage.inc.php" method="POST" class="dontDisplay" id="<?php echo $hidden_form_id ?>">
+                                            <input type="hidden" name="image_id" id="" value=<?php echo $image['image_id'] ?> >
+                                            <input type="hidden" name="image_path" id="" value=<?php echo $image['image_path'] ?> >
+                                        </form>
+
+                                        <button class="btn btn-sm btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+                                        <button type="submit" name="submit" form="<?php echo $hidden_form_id ?>" class="btn btn-sm btn-danger" data-bs-dismiss="modal">DELETE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+            <?php } ?>
         </div>
     </div>
 

@@ -13,4 +13,8 @@ class GalleryContr extends Gallery {
     public function uploadImage() {
         $this->setImage($this->imagePath, $this->mech_id);
     }
+
+    public function removeImage($image_id) {
+        $this->deleteImage($image_id);
+    }
 }

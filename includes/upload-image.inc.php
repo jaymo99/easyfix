@@ -63,7 +63,7 @@ if ($uploadOk == 0) {
     $gallery = new GalleryContr($imagePath, $mech_id);
     $gallery->uploadImage();
 
-    $_SESSION['form-success'] = "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    $_SESSION['form-success'] = "The file '". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). "' has been uploaded.";
     header("location: ../mechanic-settings-gallery.php?error=success");
     exit();
   } else {
