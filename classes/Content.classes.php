@@ -46,6 +46,21 @@ class Content extends Dbh {
         return $results;
     }
 
+    protected function getMechanicServices($mech_id) {
+        $sql = "SELECT * FROM mechanic_services WHERE mechanic_mech_id=?;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        if(!$stmt->execute(array($mech_id))) {
+            $stmt = null;
+            header("location: ../mechanic-settings-services.php?error=stmtfailedMechanicServicesContent");
+            exit();
+        }
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     protected function getClientAppointments($client_id) {
         $sql = "SELECT mechanic.name, mechanic.town, appointment.appointment_id, appointment.approval_status, appointment.date, appointment.problem_description
         FROM appointment

@@ -1,5 +1,13 @@
 <?php
     session_start();
+
+    // Including relevant classes
+    include "includes/autoloader.inc.php";
+
+    //Initializing the controller
+    $content = new ContentContr();
+    $mech_id = $_SESSION['user_id'];
+    $mechanic_services = $content->displayMechanicServices($mech_id);
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My appointments</title>
+    <title>Mechanic settings</title>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
@@ -18,13 +26,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--  -->
     <script src="bootstrap/js/bootstrap.bundle.min.js" defer></script>
-    <!-- <script src="bootstrap/js/bootstrap.min.js" defer></script> -->
     <script src="JS/script.js" defer></script>
     <script src="JS/hamburger.js" defer></script>
     <script src="JS/map.js" defer></script>
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDteNsv96-8loTY5QU0sjFFjQJGVnJQXPo&callback=settingsMap">
-    </script>
     
 </head>
 <body>
@@ -79,18 +83,10 @@
 
     <div class="body_container">
         <div class="reduced_body">
-            <div id="map"></div>
 
-            <div class="mechanic-settings-options">
-                <div class="my-flex-container" style="width: 50%;">
-                    <button onclick="saveLocation(<?php echo $_SESSION['user_id'] ?>)" class="btn btn-dark" style="margin: .5rem auto;">SAVE LOCATION</button>
-                    <div id="current"></div>
-                </div>
-
-                <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="offcanvasExample" style="align-self: flex-start; margin: .5rem 0;">
-                MORE SETTINGS
-                </button>
-            </div>
+            <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsOffcanvas" aria-controls="offcanvasExample" style="align-self: flex-start; margin: .5rem 0;">
+            MORE SETTINGS
+            </button>
 
             <!--  -->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="settingsOffcanvas" aria-labelledby="offcanvasLabel">
@@ -100,17 +96,17 @@
                 </div>
                 <div class="offcanvas-body" style="background-color: #E2B80A;">
                     <ul class="navbar-nav">
-                        <li class="nav-item sidebar-item active-link">
+                        <li class="nav-item sidebar-item">
                             <img class="sidebar-icon" src="graphics/map.png" alt="">
-                            <a href="#" class="nav-link sidebar-link">Map</a>
+                            <a href="mechanic-settings.php" class="nav-link sidebar-link">Map</a>
                         </li>
                         <li class="nav-item sidebar-item">
                             <img class="sidebar-icon" src="graphics/gallery.png" alt="">
                             <a href="mechanic-settings-gallery.php" class="nav-link sidebar-link">Gallery</a>
                         </li>
-                        <li class="nav-item sidebar-item">
+                        <li class="nav-item sidebar-item active-link">
                             <img class="sidebar-icon" src="graphics/repair.png" alt="">
-                            <a href="mechanic-settings-services.php" class="nav-link sidebar-link">Services</a>
+                            <a href="#" class="nav-link sidebar-link">Services</a>
                         </li>
                         <li class="nav-item sidebar-item">
                             <img class="sidebar-icon" src="graphics/working hours.png" alt="">
@@ -120,6 +116,46 @@
                 </div>
             </div>
             <!--  -->
+            
+            <?php if(isset($_SESSION['form-success'])) { ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success! </strong>
+                <?php echo $_SESSION['form-success']; unset($_SESSION['form-success']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php } ?>
+            <?php if(isset($_SESSION['form-warning'])) { ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Attention! </strong>
+                <?php echo $_SESSION['form-warning']; unset($_SESSION['form-warning']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php } ?>
+            <section class="mechanic-services-section" style="margin: 0;">
+                <div class="mechanic-services-text">
+                    <h2 class="section-heading heading-center" style="margin-bottom: 2rem;">MANAGE SERVICES</h2>
+                    
+                    <form class="form-add-item" action="includes/update-mechanic-services.inc.php" method="POST">
+                        <input class="form-control" type="text" name="mechanic_service" id="" required>
+                        <input type="submit" value="Add" class="btn btn-sm btn-success">
+                    </form>
+
+                    <?php foreach($mechanic_services as $service) { ?>
+                    <form class="form-add-item" action="includes/delete-mechanic-services.inc.php" method="post">
+                        <!-- hidden input for identifying service_id for each service -->
+                        <input type="hidden" id="" name="service_id" value=<?php echo $service['service_id'] ?>>
+
+                        <div class="mechanic-services-item">
+                            <img src="graphics/repair.png" alt="">
+                            <span><?php echo $service['service']; ?></span>
+                        </div>
+                        <button type="submit" class="btn btn-sm"><img src="graphics/delete.png" alt="" style="width: 30px;"></button>
+                    </form>
+                    <?php } ?>
+                </div>
+                <img src="graphics/handyman.jpg" alt="">
+
+            </section>
         </div>
     </div>
 

@@ -105,6 +105,10 @@
                             <a href="#" class="nav-link sidebar-link">Gallery</a>
                         </li>
                         <li class="nav-item sidebar-item">
+                            <img class="sidebar-icon" src="graphics/repair.png" alt="">
+                            <a href="mechanic-settings-services.php" class="nav-link sidebar-link">Services</a>
+                        </li>
+                        <li class="nav-item sidebar-item">
                             <img class="sidebar-icon" src="graphics/working hours.png" alt="">
                             <a href="mechanic-settings-workinghours.php" class="nav-link sidebar-link">Working Hours</a>
                         </li>

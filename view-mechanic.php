@@ -25,6 +25,7 @@ session_start();
     $content = new ContentContr();
     $mechanic = $content->displayMechanic($mech_id);
     $gallery = $content->displayMechanicGallery($mech_id);
+    $mechanic_services = $content->displayMechanicServices($mech_id);
     $form_action = "includes/appointment.inc.php";
 ?>
 
@@ -168,15 +169,34 @@ session_start();
                         </div>
                 </div>
             </div>
-            
-            <!-- IF mechanic has gallery images, display them here -->
+
+            <!-- if mechanic has services set, display them here -->
+            <?php if(sizeof($mechanic_services) > 0) { ?>
+            <section class="mechanic-services-section">
+                <div class="mechanic-services-text">
+                    <h2 class="section-heading heading-center" style="margin-bottom: 2rem;">OUR SERVICES</h2>
+                    
+                    <?php foreach($mechanic_services as $service) { ?>
+                    <div class="mechanic-services-item">
+                        <img src="graphics/repair.png" alt="">
+                        <span><?php echo $service['service']; ?></span>
+                    </div>
+                    <?php } ?>
+                </div>
+                <img class="handyman" src="graphics/handyman.jpg" alt="">
+
+            </section>
+            <?php } ?>
+
+            <!-- If mechanic has gallery images, display them here -->
             <!-- The webpage has 3 columns for displaying gallery, we need to divide the images into three separate arrays, then display each array in its own column -->
-            <?php if($gallery > 0){ 
+            <?php if(sizeof($gallery) > 0){ 
                 $counter = 1;
                 $column1 = array();
                 $column2 = array();
                 $column3 = array();
             ?>
+
             <div class="mechanic-gallery-container">
                 <?php 
                 foreach ($gallery as $image) {
