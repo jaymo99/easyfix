@@ -21,7 +21,7 @@
     <!-- <script src="bootstrap/js/bootstrap.min.js" defer></script> -->
     <script src="JS/script.js" defer></script>
     <script src="JS/hamburger.js" defer></script>
-    <script src="JS/map.js" defer></script>
+    <script src="JS/map.js"></script>
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDteNsv96-8loTY5QU0sjFFjQJGVnJQXPo&callback=settingsMap">
     </script>

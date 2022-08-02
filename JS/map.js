@@ -170,7 +170,7 @@ function getDirections() {
     .then((response) => {
       directionsRenderer.setDirections(response);
     })
-    .catch((e) => window.alert("Directions request failed due to "));
+    .catch((e) => window.alert("Directions request failed. Denied by map provider "));
 
 }
 
