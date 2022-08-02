@@ -44,7 +44,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--  -->
     <script src="JS/jquery-3.6.0.min.js" defer></script>
-    <script src="JS/map.js" defer></script>
+    <script src="JS/map.js"></script>
     <script src="JS/script.js" defer></script>
     <script src="JS/hamburger.js" defer></script>
     <script async
