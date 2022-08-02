@@ -16,5 +16,8 @@ if(isset($_POST["submit"])) {
         $gallery->removeImage($image_id);
         $_SESSION['form-warning'] = "image '" . $image_path . "' deleted";
         header("location: ../mechanic-settings-gallery.php?error=imageDeletedSuccessfully");
+    }else {
+        $_SESSION['form-warning'] = "Unable to delete image";
+        header("location: ../mechanic-settings-gallery.php?error=errorDeletingImage");
     }
 }

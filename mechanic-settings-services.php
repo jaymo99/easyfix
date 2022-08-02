@@ -153,7 +153,7 @@
                     </form>
                     <?php } ?>
                 </div>
-                <img src="graphics/handyman.jpg" alt="">
+                <img class="handyman" src="graphics/handyman.jpg" alt="">
 
             </section>
         </div>

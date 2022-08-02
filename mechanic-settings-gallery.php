@@ -158,7 +158,7 @@
                 
             </form>
             
-            <?php if($gallery > 0) { 
+            <?php if(sizeof($gallery) > 0) { 
                 $counter = 1;
             ?>
             <table class="table" style="background: white;">
@@ -204,8 +204,8 @@
                                     <div class="modal-footer">
                                         <!-- hidden form for passing image information for delete -->
                                         <form action="includes/deleteImage.inc.php" method="POST" class="dontDisplay" id="<?php echo $hidden_form_id ?>">
-                                            <input type="hidden" name="image_id" id="" value=<?php echo $image['image_id'] ?> >
-                                            <input type="hidden" name="image_path" id="" value=<?php echo $image['image_path'] ?> >
+                                            <input type="hidden" name="image_id" id="" value="<?php echo $image['image_id'] ?> ">
+                                            <input type="hidden" name="image_path" id="" value="<?php echo $image['image_path'] ?>" >
                                         </form>
 
                                         <button class="btn btn-sm btn-secondary" data-bs-dismiss="modal">CANCEL</button>
