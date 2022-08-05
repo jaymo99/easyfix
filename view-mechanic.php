@@ -258,7 +258,7 @@ session_start();
                     <form action="<?php echo $form_action; ?>" method="POST">
                         <div class="appointment-form-row">
                             <label for="appointment_date" class="my-placeholder">Appointment Date:</label>
-                            <input type="date" name="date" id="appointment_date" class="form-control" required>
+                            <input id="date_picker" type="date" name="date" id="appointment_date" class="form-control" required>
                         </div>
         
                         <div class="appointment-form-row">
@@ -292,6 +292,19 @@ session_start();
     </div>
 
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- disable previous dates in date picker -->
+    <script src="JS/jquery-3.6.0.min.js"></script>
+    <script language="javascript">
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#date_picker').attr('min',today);
+
+    </script>
 </body>
 </html>
 
