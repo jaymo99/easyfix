@@ -108,6 +108,32 @@
                 </div>
             </div>
             <!--  -->
+
+            <form action="includes/working-hours.inc.php" method="post">
+                <div class="appointment-form-row">
+                    <select name="working_day" id="" class="form-select" required>
+                        <option value="" selected disabled>Choose day of the week</option>
+                        <option value="1">Sunday</option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                    </select>
+                </div>
+
+                <div class="appointment-form-row">
+                    <label for="opening_time">Opening Time</label>
+                    <input class="form-control" type="time" name="opening_time" id="opening_time" required>
+                </div>
+
+                <div class="appointment-form-row">
+                    <label for="closing_time">Closing Time</label>
+                    <input class="form-control" type="time" name="closing_time" id="closing_time" required>
+                </div>
+                <input type="submit" name="submit" value="SUBMIT" class="btn btn-dark btn-width">
+            </form>
         </div>
     </div>
 
